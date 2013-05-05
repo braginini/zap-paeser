@@ -1,0 +1,106 @@
+Request URL:https://carrinho.extra.com.br/Site/Login.aspx
+Request Method:POST
+Status Code:302 Found
+Request Headersview source
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Charset:ISO-8859-1,utf-8;q=0.7,*;q=0.3
+Accept-Encoding:gzip,deflate,sdch
+Accept-Language:en-US,en;q=0.8
+Cache-Control:max-age=0
+Connection:keep-alive
+Content-Length:8319
+Content-Type:application/x-www-form-urlencoded
+Cookie:user_signup=5874026; CoreID6=36699964724413633694972&ci=90340805; __g_c=c%3A57722055986263%7Cd%3A1%7Ca%3A0%7Cr%3A%7Cb%3A2%7Ce%3A0.05%7Cf%3A1%7Ch%3A0; __g_u=57722055986263_1_0.05_1_5_1363801502244_0; cmTPSet=Y; WebForm_firstname=Mike; WebForm_lastname=Brag; user_registration=5874026; SGTS-Extra.com=IndiceSegmentoHashCookie=2C104ECE78DFA37FA101EE0AD054CB3E; CoreM_State=88~-1~-1~-1~-1~6~6~6~10~10~7~7~|~~|~~|~~|~||||||~|~~|~~|~~|~~|~~|~~|~~|~; CoreM_State_Content=6~|~5D5C09A0BAA3C3B6~|~0; ISS-Extra.com=TesteAB=B; IPSI-Extra.com=; s_cc=true; s_sq=%5B%5BB%5D%5D; __utma=168801022.1373789820.1363369498.1363369498.1363369498.1; __utmb=168801022.13.10.1363369498; __utmc=168801022; __utmz=168801022.1363369498.1.1.utmcsr=extra.com.br|utmccn=(referral)|utmcmd=referral|utmcct=/CineFoto/CamerasDigitais/semiprofissionais/Camera-Digital-Nikon-Coolpix-L810-Preta-com-16-1MP-Zoom-Optico-26x-LCD-3-Detector-de-Face-Saida-HDMI-Videos-HD-e-Fotos-em-3D-Cartao-de-4GB-1641109.html; s_fid=1E60D2956A5C499B-0A7078F9904F67E0; 90340805_clogin=l=1363369497&v=1&e=1363372233756
+Host:carrinho.extra.com.br
+Origin:https://carrinho.extra.com.br
+Referer:https://carrinho.extra.com.br/Site/Login.aspx
+User-Agent:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.172 Safari/537.22
+Form Dataview sourceview URL encoded
+__EVENTTARGET:
+__EVENTARGUMENT:
+__LASTFOCUS:
+__VIEWSTATE:/wEPDwUKLTcyMDI5MzcwNg9kFgJmD2QWBAIBD2QWCAIHDxYCHgdjb250ZW50BQ9OT0lOREVYLCBGT0xMT1dkAhsPFgIeBGhyZWYFQWh0dHBzOi8vY2FycmluaG8uZXh0cmEuY29tLmJyL0FwcF9UaGVtZXMvRXh0cmEvSW1hZ2VzL2Zhdmljb24uaWNvZAIcDxYCHwEFLWh0dHBzOi8vY2FycmluaG8uZXh0cmEuY29tLmJyL1NpdGUvTG9naW4uYXNweGQCOA9kFgJmDxYCHgRUZXh0Be8GPCEtLSBJbsOtY2lvIHNjcmlwdHMgVGFnIE1hbmFnZXIgLS0+DQo8c2NyaXB0IHR5cGU9InRleHQvamF2YXNjcmlwdCIgPg0KVmFsaWRhckJ1c2NhT3JnYW5pY2EoKTsNCjwvc2NyaXB0Pg0KPHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiPg0KdmFyIHNpdGVNZXRhZGF0YSA9IHsic2l0ZSI6eyJuYW1lIjoiRXh0cmEiLCJkb21haW4iOiJleHRyYS5jb20uYnIiLCJhY3JvbnltIjoiRVgiLCJjb3VudHJ5IjoiQlIiLCJyZWdpb24iOiJwdC1iciIsImN1cnJlbmN5IjoiQlJMIiwidGVzdCI6ZmFsc2V9LCJwYWdlIjp7Im5hbWUiOiJMb2dpbiIsInRlbXBsYXRlTmFtZSI6IkxPR0lOIiwiaGFzQnJlYWRDcnVtYiI6ZmFsc2V9LCJzZXNzaW9uIjp7ImlwIjoiMTc3LjEzNS4xMzEuNjYifSwidG1zIjp7ImNvcmVMb2NhdGlvbiI6Imh0dHBzOi8vY2FycmluaG8uZXh0cmEuY29tLmJyL0pzL1RhZ01hbmFnZXIvIiwiY3VzdG9tTG9jYXRpb24iOiJodHRwczovL2NhcnJpbmhvLmV4dHJhLmNvbS5ici9BcHBfVGhlbWVzL0V4dHJhL2pzL1RhZ01hbmFnZXIvIiwidmVyc2lvbiI6eyJzaXRlTWV0YWRhdGEiOiIxLjQuMTMwMjI3In19fTsNCjwvc2NyaXB0Pg0KPHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiIGNoYXJzZXQ9IlVURi04IiBzcmM9Imh0dHBzOi8vY2FycmluaG8uZXh0cmEuY29tLmJyL0FwcF9UaGVtZXMvRXh0cmEvanMvVGFnTWFuYWdlci9jb25maWcuanMiPjwvc2NyaXB0Pg0KPHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiIGNoYXJzZXQ9IlVURi04IiBzcmM9Imh0dHBzOi8vY2FycmluaG8uZXh0cmEuY29tLmJyL0pzL1RhZ01hbmFnZXIvbG9hZGVyLmpzIj48L3NjcmlwdD4NCjwhLS0gRmltIHNjcmlwdHMgVGFnIE1hbmFnZXIgLS0+ZAIDDxYCHgVjbGFzcwUOY2hlY2tvdXQgbG9naW4WAgIJDxYCHghvbnN1Ym1pdAUlamF2YXNjcmlwdDpyZXR1cm4gV2ViRm9ybV9PblN1Ym1pdCgpOxYCAgkPZBYIAgEPZBYCZg8WAh8CBXc8bGkgY2xhc3M9ImF0aXZvIj5JZGVudGlmaWNhw6fDo288L2xpPjxsaT5FbnRyZWdhIGUgZW1iYWxhZ2VtPC9saT48bGk+UGFnYW1lbnRvPC9saT48bGkgY2xhc3M9Imxhc3QiPkNvbmZpcm1hw6fDo288L2xpPmQCBQ8WAh4HVmlzaWJsZWgWAmYPZBYCZg8WAh8FaGQCBw9kFgICAQ8WAh8CBR9Kw6Egc291IGNsaWVudGUgZG8gRXh0cmEuY29tLmJyZAILD2QWAgIBD2QWAmYPZBYyAgQPEA8WAh4HQ2hlY2tlZGhkZGRkAgkPFgIfAgVJPGRpdiBjbGFzcz0iYXZpc28tZXJybyI+PHA+TyBjYWRhc3RybyBmb2kgYWx0ZXJhZG8gY29tIHN1Y2Vzc28uPC9wPjwvZGl2PmQCCg8WAh8FaBYcAgUPD2QWAh4MYXV0b2NvbXBsZXRlBQNvZmZkAgsPD2QWAh8HBQNvZmZkAhEPD2QWCB8HBQNvZmYeCm9ua2V5cHJlc3MFE21hc2NhcmEodGhpcyxjbnBqKTseBm9uYmx1cgUTbWFzY2FyYSh0aGlzLGNucGopOx4Hb25rZXl1cAV4U2FsdGFDYW1wbyhjdGwwMF9Db250ZXVkb19jdHJsQ2FkYXN0cm9DbGllbnRlX3R4dENucGosY3RsMDBfQ29udGV1ZG9fY3RybENhZGFzdHJvQ2xpZW50ZV90eHRJbnNjcmljYW9Fc3RhZHVhbCwxOCxldmVudCk7ZAIXDw8WAh4MRXJyb3JNZXNzYWdlBQ9DTlBKIGludsOhbGlkby5kZAIbDw8WAh4JTWF4TGVuZ3RoAhIWCh8HBQNvZmYfCAUYbWFzY2FyYSh0aGlzLHNvTnVtZXJvcyk7HwkFGG1hc2NhcmEodGhpcyxzb051bWVyb3MpOx4Jb25rZXlkb3duBRZmb3JiaWRQYXN0ZURvd24oZXZlbnQpHwoFFGZvcmJpZFBhc3RlVXAoZXZlbnQpZAIdDxAPFgIfAgUGSXNlbnRvZGRkZAIhDw8WAh8LBR5JbnNjcmnDp2FvIEVzdGFkdWFsIEludsOhbGlkYS5kZAIjDxYCHwVoZAIlDw8WAh8FaBYEHwcFA29mZh8KBXBTYWx0YUNhbXBvKGN0bDAwX0NvbnRldWRvX2N0cmxDYWRhc3Ryb0NsaWVudGVfdHh0Q2VwMUNvbSxjdGwwMF9Db250ZXVkb19jdHJsQ2FkYXN0cm9DbGllbnRlX3R4dENlcDJDb20sNSxldmVudCk7ZAInDw8WAh8FaBYEHwcFA29mZh8KBW9TYWx0YUNhbXBvKGN0bDAwX0NvbnRldWRvX2N0cmxDYWRhc3Ryb0NsaWVudGVfdHh0Q2VwMkNvbSxjdGwwMF9Db250ZXVkb19jdHJsQ2FkYXN0cm9DbGllbnRlX3R4dERERENvbSwzLGV2ZW50KTtkAjcPZBYCZg9kFgQCAw8PFgIfAmUWAh8HBQNvZmZkAgUPDxYCHgdUb29sVGlwZGRkAjkPDxYCHwsFJk7Dum1lcm8gZG8gQ2FydMOjbyBCb21jbHViZSBpbnbDoWxpZG8uZGQCPQ8PZBYGHwcFA29mZh8IBRhtYXNjYXJhKHRoaXMsc29OdW1lcm9zKTsfCgVuU2FsdGFDYW1wbyhjdGwwMF9Db250ZXVkb19jdHJsQ2FkYXN0cm9DbGllbnRlX3R4dERERENvbSxjdGwwMF9Db250ZXVkb19jdHJsQ2FkYXN0cm9DbGllbnRlX3R4dFRlbENvbSwyLGV2ZW50KTtkAj8PD2QWBh8HBQNvZmYfCAUYbWFzY2FyYSh0aGlzLHNvTnVtZXJvcyk7HwoFbFNhbHRhQ2FtcG8oY3RsMDBfQ29udGV1ZG9fY3RybENhZGFzdHJvQ2xpZW50ZV90eHRUZWxDb20sY3RsMDBfQ29udGV1ZG9fY3RybENhZGFzdHJvQ2xpZW50ZV90eHRTaXRlLDgsZXZlbnQpO2QCDQ8PZBYCHwcFA29mZmQCEA8PZBYCHwcFA29mZmQCEw8PZBYCHwcFA29mZmQCFA9kFggCAQ9kFgJmDxYCHwIFHkNQRjxzcGFuIGNsYXNzPSdvYnInPio8L3NwYW4+OmQCAw8PZBYKHwcFA29mZh8IBRJtYXNjYXJhKHRoaXMsY3BmKTsfCQUSbWFzY2FyYSh0aGlzLGNwZik7HwoFdFNhbHRhQ2FtcG8oY3RsMDBfQ29udGV1ZG9fY3RybENhZGFzdHJvQ2xpZW50ZV90eHRDcGYsIGN0bDAwX0NvbnRldWRvX2N0cmxDYWRhc3Ryb0NsaWVudGVfdHh0RGF0YU5hc2NEaWEsIDE0LCBldmVudCk7HgdvbmZvY3VzBQxyZXR1cm4gdHJ1ZTtkAgUPDxYCHw4FGFBvciBxdWUgcGVkaW1vcyBzZXUgQ1BGP2RkAgsPDxYCHwsFDkNQRiBpbnbDoWxpZG8uZGQCFg8PZBYIHwcFA29mZh8JBRdSZWZyZXNoRGF0YU5hc2NpbWVudG8oKR8IBRhtYXNjYXJhKHRoaXMsc29OdW1lcm9zKTsfCgV7U2FsdGFDYW1wbyhjdGwwMF9Db250ZXVkb19jdHJsQ2FkYXN0cm9DbGllbnRlX3R4dERhdGFOYXNjRGlhLCBjdGwwMF9Db250ZXVkb19jdHJsQ2FkYXN0cm9DbGllbnRlX3R4dERhdGFOYXNjTWVzLCAyLCBldmVudCk7ZAIXDw9kFggfBwUDb2ZmHwkFF1JlZnJlc2hEYXRhTmFzY2ltZW50bygpHwgFGG1hc2NhcmEodGhpcyxzb051bWVyb3MpOx8KBXhTYWx0YUNhbXBvKGN0bDAwX0NvbnRldWRvX2N0cmxDYWRhc3Ryb0NsaWVudGVfdHh0RGF0YU5hc2NNZXMsY3RsMDBfQ29udGV1ZG9fY3RybENhZGFzdHJvQ2xpZW50ZV90eHREYXRhTmFzY0FubywyLGV2ZW50KTtkAhgPD2QWCB8HBQNvZmYfCQUXUmVmcmVzaERhdGFOYXNjaW1lbnRvKCkfCAUYbWFzY2FyYSh0aGlzLHNvTnVtZXJvcyk7HwoFdFNhbHRhQ2FtcG8oY3RsMDBfQ29udGV1ZG9fY3RybENhZGFzdHJvQ2xpZW50ZV90eHREYXRhTmFzY0FubyxjdGwwMF9Db250ZXVkb19jdHJsQ2FkYXN0cm9DbGllbnRlX3JhZGlvU2V4b00sNCxldmVudCk7ZAIZDw9kFgIfBwUDb2ZmZAIbDw8WAh8LBQ9EYXRhIGludsOhbGlkYS5kZAIfDxYCHgdvbmNsaWNrBVdkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnY3RsMDBfQ29udGV1ZG9fY3RybENhZGFzdHJvQ2xpZW50ZV90eHRTZXhvJykudmFsdWU9IHRoaXMudmFsdWVkAiEPFgIfEAVXZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2N0bDAwX0NvbnRldWRvX2N0cmxDYWRhc3Ryb0NsaWVudGVfdHh0U2V4bycpLnZhbHVlPSB0aGlzLnZhbHVlZAIjDw9kFgIfBwUDb2ZmZAIlD2QWAgIBDxYCHwIFHkNFUDxzcGFuIGNsYXNzPSdvYnInPio8L3NwYW4+OmQCJg9kFgJmD2QWBAIDDw9kFgQfBwUDb2ZmHwgFGG1hc2NhcmEodGhpcyxzb051bWVyb3MpO2QCBQ8PFgIfDgUOTyBxdWUgw6kgaXN0bz9kZAIoDxYCHwIFEFRlbGVmb25lIGZpeG8gMTpkAjUPD2QWBh8NBRZmb3JiaWRQYXN0ZURvd24oZXZlbnQpHwoFFGZvcmJpZFBhc3RlVXAoZXZlbnQpHwcFA29mZmQCOw8PZBYGHw0FFmZvcmJpZFBhc3RlRG93bihldmVudCkfCgUUZm9yYmlkUGFzdGVVcChldmVudCkfBwUDb2ZmZAI8Dw8WAh8OBS5Qb3IgcXVlIHBlZGltb3MgYSBjb25maXJtYcOnw6NvIGRvIHNldSBlLW1haWw/ZGQCQg8PFgIfDAISFgYfBwUDb2ZmHw0FFmZvcmJpZFBhc3RlRG93bihldmVudCkfCgUUZm9yYmlkUGFzdGVVcChldmVudClkAkYPDxYCHwwCEhYGHwcFA29mZh8NBRZmb3JiaWRQYXN0ZURvd24oZXZlbnQpHwoFFGZvcmJpZFBhc3RlVXAoZXZlbnQpZAJKDxYCHwMFCGNoZWNrYm94ZAJMDw8WBB8CBQZHcmF2YXIfDgUGR3JhdmFyZGQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgcFNGN0bDAwJENvbnRldWRvJGN0cmxDYWRhc3Ryb0NsaWVudGUkcmFkaW9QZXNzb2FGaXNpY2EFNmN0bDAwJENvbnRldWRvJGN0cmxDYWRhc3Ryb0NsaWVudGUkcmFkaW9QZXNzb2FKdXJpZGljYQU2Y3RsMDAkQ29udGV1ZG8kY3RybENhZGFzdHJvQ2xpZW50ZSRyYWRpb1Blc3NvYUp1cmlkaWNhBS1jdGwwMCRDb250ZXVkbyRjdHJsQ2FkYXN0cm9DbGllbnRlJHJhZGlvU2V4b00FLWN0bDAwJENvbnRldWRvJGN0cmxDYWRhc3Ryb0NsaWVudGUkcmFkaW9TZXhvRgUqY3RsMDAkQ29udGV1ZG8kY3RybENhZGFzdHJvQ2xpZW50ZSRja2JOZXdzBSljdGwwMCRDb250ZXVkbyRjdHJsQ2FkYXN0cm9DbGllbnRlJGNrYlNNU7kX4XNldq8y6ehxYNGA04ECewlD
+__EVENTVALIDATION:/wEWIAK4lZWQCgKq66BdApeJicAIAsfo1LQGAoeCra0LAuPi9/QMAuyJntgMAuK/pqUJApuutpcMApyP3qEBAuW5wogJAuCGhjYC2KvJ1goC5tjTvQYCzPXJkg0CzPW1kg0CsqLj8goCio++nQgCio+6nQgCh+vYvQ0Cs+Cykw8Cr6m9lAEClqeH+AgCw8n6gw8Clo+CnAgCiP+l4wICt8f7+g4CoquQ2g8Cyu6Y6Q0C0YfKzw8CjqDLzA4CmYe+2wZq8LbZmSJkSpoYOhLM7ReJXZamtA==
+ctl00$Conteudo$ctrLogin$UserName:bangvalo@gmail.com
+ctl00$Conteudo$ctrLogin$Password:123456
+ctl00$Conteudo$ctrLogin$Login:Continuar
+ctl00$Conteudo$ctrlCadastroCliente$TipoPessoa:radioPessoaFisica
+ctl00$Conteudo$ctrlCadastroCliente$txtNome:
+ctl00$Conteudo$ctrlCadastroCliente$txtSobrenome:
+ctl00$Conteudo$ctrlCadastroCliente$txtApelido:
+ctl00$Conteudo$ctrlCadastroCliente$txtCpf:
+ctl00$Conteudo$ctrlCadastroCliente$txtDataNascDia:
+ctl00$Conteudo$ctrlCadastroCliente$txtDataNascMes:
+ctl00$Conteudo$ctrlCadastroCliente$txtDataNascAno:
+ctl00$Conteudo$ctrlCadastroCliente$txtDataNasc:
+ctl00$Conteudo$ctrlCadastroCliente$txtSexo:
+ctl00$Conteudo$ctrlCadastroCliente$txtCep1:
+ctl00$Conteudo$ctrlCadastroCliente$txtCep2:
+ctl00$Conteudo$ctrlCadastroCliente$txtTelResDDD:
+ctl00$Conteudo$ctrlCadastroCliente$txtTelRes:
+ctl00$Conteudo$ctrlCadastroCliente$txtDDDCom_PF:
+ctl00$Conteudo$ctrlCadastroCliente$txtTelCom_PF:
+ctl00$Conteudo$ctrlCadastroCliente$txtCelDDD:
+ctl00$Conteudo$ctrlCadastroCliente$txtCel:
+ctl00$Conteudo$ctrlCadastroCliente$txtEmail:
+ctl00$Conteudo$ctrlCadastroCliente$txtEmailConfirmacao:
+ctl00$Conteudo$ctrlCadastroCliente$txtSenha:
+ctl00$Conteudo$ctrlCadastroCliente$txtConfirmacaoSenha:
+ctl00$Conteudo$ctrlCadastroCliente$ckbNews:on
+ctl00$Conteudo$ctrlCadastroCliente$ckbSMS:on
+
+Response Headersview source
+Cache-Control:no-cache
+Content-Encoding:gzip
+Content-Type:text/html; charset=utf-8
+Date:Fri, 15 Mar 2013 17:57:09 GMT
+Expires:-1
+Location:http://www.extra.com.br
+Pragma:no-cache
+Server:Microsoft-IIS/7.0
+Set-Cookie:SGTP-Extra.com=UGUIDReturn=True; domain=extra.com.br; expires=Tue, 15-Mar-2033 17:57:09 GMT; path=/
+Set-Cookie:ISS-Extra.com=TesteAB=B; domain=extra.com.br; path=/
+Set-Cookie:IPSI-Extra.com=Apelido=Mike&itens=0; domain=extra.com.br; expires=Tue, 15-Mar-2033 17:57:09 GMT; path=/
+Set-Cookie:IPI-Extra.com=UsuarioGUID=6df2a6fb-16ac-4a59-9519-d8b62b3a8932&idClienteProvavel=%2b4VX97Xa0oAVQbHFgBpFTQ%3d%3d; domain=extra.com.br; expires=Tue, 15-Mar-2033 17:57:10 GMT; path=/
+Set-Cookie:SGTS-Extra.com=IndiceSegmentoHashCookie=C800FEFCBA95E8BCE4E5191A32D7DA13; domain=extra.com.br; path=/
+Set-Cookie:faextra=A118CC1EB3B00840EF8076ECBCC259DD2BDA321F72C2304BC844EBF50A69E30D96CE8F4BBB6F409D71CFC594DDC920547ADE9485D0C2E7A2B51FB7D07182F9F3B7B4D397D9B4265593454824D887E57E2FAFEBAFDBC101A4E1EADC63AC396A25156E94B186EEE8A651A6C4FFF135A20240C52143; path=/; HttpOnly
+Set-Cookie:IST-Extra.com=IdCliente=5873773&Email=bangvalo%40gmail.com&Idade=25&Sexo=M&Pais=Brasil&Estado=RJ&Municipio=Rio+de+Janeiro&Cep=20040200&FonteLogin=Site&OptinEmail=False&OptinSMS=False&Tipo=PF&Nascimento=1988-05-24+00%3a00%3a00Z; domain=extra.com.br; path=/
+Set-Cookie:ISS-Extra.com=TesteAB=B&__clusteres_usuario=%253cXml%2b%252f%253e; domain=extra.com.br; path=/
+Transfer-Encoding:chunked
+Vary:Accept-Encoding, User-Agent
+X-AspNet-Version:2.0.50727
+X-Powered-By:ASP.NET
+X-SERVER:CHELSEA009
+
+
+
+Request URL:http://www.extra.com.br/Site/Chaordic.aspx?page=home
+Request Method:GET
+Status Code:200 OK
+Request Headersview source
+Accept:*/*
+Accept-Charset:ISO-8859-1,utf-8;q=0.7,*;q=0.3
+Accept-Encoding:gzip,deflate,sdch
+Accept-Language:en-US,en;q=0.8
+Connection:keep-alive
+Cookie:CoreID6=36699964724413633694972&ci=90340805; __g_c=c%3A103738819001673%7Cd%3A1%7Ca%3A0%7Cr%3A%7Cb%3A2%7Ce%3A0.05%7Cf%3A1%7Ch%3A0; __g_u=103738819001673_1_0.05_1_5_1363801498295_0; cmTPSet=Y; WebForm_firstname=Mike; WebForm_lastname=Brag; CoreM_State=88~-1~-1~-1~-1~6~6~6~10~10~7~7~|~~|~~|~~|~||||||~|~~|~~|~~|~~|~~|~~|~~|~; CoreM_State_Content=6~|~5D5C09A0BAA3C3B6~|~0; user_registration=5873773; IPSI-Extra.com=Apelido=Mike&itens=0; IPI-Extra.com=UsuarioGUID=6df2a6fb-16ac-4a59-9519-d8b62b3a8932&idClienteProvavel=%2b4VX97Xa0oAVQbHFgBpFTQ%3d%3d; SGTP-Extra.com=UGUIDReturn=True; IST-Extra.com=IdCliente=5873773&Email=bangvalo%40gmail.com&Idade=25&Sexo=M&Pais=Brasil&Estado=RJ&Municipio=Rio+de+Janeiro&Cep=20040200&FonteLogin=Site&OptinEmail=False&OptinSMS=False&Tipo=PF&Nascimento=1988-05-24+00%3a00%3a00Z; ISS-Extra.com=TesteAB=B&__clusteres_usuario=%253cXml%2b%252f%253e; SGTS-Extra.com=IndiceSegmentoHashCookie=C800FEFCBA95E8BCE4E5191A32D7DA13; s_cc=true; s_fid=1E60D2956A5C499B-0A7078F9904F67E0; s_sq=%5B%5BB%5D%5D; __utma=168801022.1373789820.1363369498.1363369498.1363369498.1; __utmb=168801022.17.10.1363369498; __utmc=168801022; __utmz=168801022.1363369498.1.1.utmcsr=extra.com.br|utmccn=(referral)|utmcmd=referral|utmcct=/CineFoto/CamerasDigitais/semiprofissionais/Camera-Digital-Nikon-Coolpix-L810-Preta-com-16-1MP-Zoom-Optico-26x-LCD-3-Detector-de-Face-Saida-HDMI-Videos-HD-e-Fotos-em-3D-Cartao-de-4GB-1641109.html; 90340805_clogin=l=1363369497&v=1&e=1363372715173
+Host:www.extra.com.br
+Referer:http://www.extra.com.br/
+User-Agent:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.172 Safari/537.22
+X-Requested-With:XMLHttpRequest
+Query String Parametersview sourceview URL encoded
+page:home
+Response Headersview source
+Cache-Control:max-age=0, no-cache, no-store
+Connection:keep-alive
+Content-Length:172
+Content-Type:text/html; charset=utf-8
+Date:Fri, 15 Mar 2013 18:05:15 GMT
+Expires:Fri, 15 Mar 2013 18:05:15 GMT
+Pragma:no-cache
+Server:Microsoft-IIS/7.0
+Set-Cookie:ISS-Extra.com=TesteAB=B&__clusteres_usuario=%253cXml%2b%252f%253e; domain=extra.com.br; path=/
+Vary:Accept-Encoding
+X-AspNet-Version:2.0.50727
+X-Powered-By:ASP.NET
+X-SERVER:CHELSEA003

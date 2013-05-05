@@ -1,0 +1,36 @@
+Request URL:http://extra-raas.chaordicsystems.com/raas//pages/cookie?apiKey=extra
+Request Method:GET
+Status Code:200 OK
+Request Headers view source
+Accept:*/*
+Accept-Charset:ISO-8859-1,utf-8;q=0.7,*;q=0.3
+Accept-Encoding:gzip,deflate,sdch
+Accept-Language:en-US,en;q=0.8
+Cache-Control:max-age=0
+Connection:keep-alive
+Cookie:uid-saraiva=anon-e6533ed0-85bb-11e2-b1cb-bf9f9246dcfc; uid-walmart=anon-2e8ef260-881f-11e2-9b6d-cf3d884a2e1b; tg-casasbahia=T_CASASBAHIA_2013_01_09_A/vLDqcLiDeuaWA6ZsUSgsaA40DdL3j05V; uid-casasbahia=anon-ea23a7c0-85bb-11e2-9e20-6907da983453; uid-extra=anon-26ca4350-8bd9-11e2-93e2-adf4b3049621; tg-extra=T_EXTRA_2013_01_09_B/YO0JvBXJdBZ6RY1D1MvZOkLk3Ri9Yxax
+Host:extra-raas.chaordicsystems.com
+Referer:http://www.extra.com.br/Eletronicos/tvs/TVLED/TV-32%e2%80%9d-LED-LG-32LS3400-com-Conversor-Digital-e-Entradas-HDMI-e-USB-1685742.html
+User-Agent:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.152 Safari/537.22
+Query String Parametersview sourceview URL encoded
+apiKey:extra
+
+Response Headers view source
+Access-Control-Allow-Headers:Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version
+Access-Control-Allow-Methods:GET
+Access-Control-Allow-Origin:*
+Access-Control-Expose-Headers:X-Api-Version, X-Request-Id, X-Response-Time
+Connection:keep-alive
+Content-Length:2
+Content-MD5:mZFLkyvTelC5g8XnyQrpOw==
+Content-Type:application/json
+Date:Wed, 13 Mar 2013 20:40:31 GMT
+Monkey:ip-10-166-70-222:9002
+P3P:CP="NOI DSP COR NID ADMa OPTa OUR NOR"
+Server:nginx
+Set-Cookie:uid-extra=anon-26ca4350-8bd9-11e2-93e2-adf4b3049621; Max-Age=31104000; Domain=.chaordicsystems.com; Path=/
+X-Request-Id:92612413-f020-4e38-9ba3-226192866f83
+X-Response-Time:1
+
+
+1) sends a request with a shop API key in query param and receives back user UID

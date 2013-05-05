@@ -1,0 +1,88 @@
+Request URL:http://extra-raas.chaordicsystems.com/raas/pages/recommend/frequentlyBought?callback=jQuery18209004938644357026_1363207427722&csParam=%7B%22index%22%3A0%2C%22size%22%3A1%2C%22retrieveUrlTemplates%22%3Atrue%2C%22productInfo%22%3A%22%5B%5C%22paymentConditions%5C%22%5D%22%2C%22apiKey%22%3A%22extra%22%2C%22feature%22%3A%22frequentlybought%22%2C%22source%22%3A%22product+details%22%2C%22pack%22%3A%22xWcE4PR67nvfA3nqjoumJhueem0vwDMq533bgPVEJaEJ6mbAzgjf6HcnHrs1jcVJtY696rWB0%2FBdDE72QrpwzqqTVaKYNSr4xNKGKdTDYhxcHwgdIxO98jvH24Y5Sov7BKh6nN2q%2BmONpT0r%2B8wb7kiDMYC%2F%2BsxhEEqljqAeFXw1TORfxMWNAMRT1ZxT5eSChlG6aAyUomkM3NN%2B4FQaCr%2BwRtoWbcrseJsyozCMH2I%3D%22%2C%22charset%22%3A%22UTF-8%22%7D&_=1363207434086
+Request Method:GET
+Status Code:200 OK
+Request Headersview source
+Accept:*/*
+Accept-Charset:ISO-8859-1,utf-8;q=0.7,*;q=0.3
+Accept-Encoding:gzip,deflate,sdch
+Accept-Language:en-US,en;q=0.8
+Cache-Control:max-age=0
+Connection:keep-alive
+Cookie:uid-saraiva=anon-e6533ed0-85bb-11e2-b1cb-bf9f9246dcfc; uid-walmart=anon-2e8ef260-881f-11e2-9b6d-cf3d884a2e1b; tg-casasbahia=T_CASASBAHIA_2013_01_09_A/vLDqcLiDeuaWA6ZsUSgsaA40DdL3j05V; uid-casasbahia=anon-ea23a7c0-85bb-11e2-9e20-6907da983453; tg-extra=T_EXTRA_2013_01_09_B/YO0JvBXJdBZ6RY1D1MvZOkLk3Ri9Yxax; uid-extra=anon-26ca4350-8bd9-11e2-93e2-adf4b3049621
+Host:extra-raas.chaordicsystems.com
+Referer:http://www.extra.com.br/Eletronicos/tvs/TVLED/TV-32%e2%80%9d-LED-LG-32LS3400-com-Conversor-Digital-e-Entradas-HDMI-e-USB-1685742.html
+User-Agent:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.152 Safari/537.22
+Query String Parametersview sourceview URL encoded
+callback:jQuery18209004938644357026_1363207427722
+csParam:{"index":0,"size":1,"retrieveUrlTemplates":true,"productInfo":"[\"paymentConditions\"]","apiKey":"extra","feature":"frequentlybought","source":"product details","pack":"xWcE4PR67nvfA3nqjoumJhueem0vwDMq533bgPVEJaEJ6mbAzgjf6HcnHrs1jcVJtY696rWB0/BdDE72QrpwzqqTVaKYNSr4xNKGKdTDYhxcHwgdIxO98jvH24Y5Sov7BKh6nN2q+mONpT0r+8wb7kiDMYC/+sxhEEqljqAeFXw1TORfxMWNAMRT1ZxT5eSChlG6aAyUomkM3NN+4FQaCr+wRtoWbcrseJsyozCMH2I=","charset":"UTF-8"}
+_:1363207434086
+Response Headersview source
+Access-Control-Allow-Headers:Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version
+Access-Control-Allow-Methods:GET
+Access-Control-Allow-Origin:*
+Access-Control-Expose-Headers:X-Api-Version, X-Request-Id, X-Response-Time
+Connection:keep-alive
+Content-Encoding:gzip
+Content-Length:736
+Content-MD5:kaxWddbzywE/fbghypFyPQ==
+Content-Type:application/javascript
+Date:Wed, 13 Mar 2013 20:40:36 GMT
+Monkey:ip-10-188-140-245:9008
+P3P:CP="NOI DSP COR NID ADMa OPTa OUR NOR"
+Server:nginx
+Set-Cookie:uid-extra=anon-26ca4350-8bd9-11e2-93e2-adf4b3049621; Max-Age=31104000; Domain=.chaordicsystems.com; Path=/
+X-Request-Id:2407040a-d273-4756-9ef9-9a5d966be94a
+X-Response-Time:4
+
+
+{
+    "ok": true,
+    "data": {
+        "widget": {
+            "apiQuery": "frequentlybought",
+            "urlTemplates": {
+                "imageUrl": "imagens.extra.com.br/Control/ArquivoExibir.aspx?IdArquivo=%IMAGE_NAME%",
+                "httpsImageUrl": "carrinho.extra.com.br/Control/ArquivoExibir.aspx?IdArquivo=%IMAGE_NAME%",
+                "cartUrl": "carrinho.extra.com.br/Site/Carrinho.aspx?idSku=%PRODUCT_ID%",
+                "notifyUrl": null,
+                "itemUrl": "produto.extra.com.br/%PRODUCT_ID%"
+            },
+            "size": 1
+        },
+        "showInspectionData": false,
+        "generator": null,
+        "category": {
+            "name": null
+        },
+        "recommendedItems": [
+            {
+                "apiKey": "extra",
+                "businessId": "261641",
+                "name": "Suporte de Parede ELG Genius p/ TVs Plasma, LCD, LED de 15\" a 71\"",
+                "status": "AVAILABLE",
+                "imageName": "3470877",
+                "detailUrl": "http://www.extra.com.br/Eletronicos/AcessoriosEletronicos/Suportes/Suporte-de-Parede-ELG-Genius-p-TVs-Plasma-LCD-LED-de-15-a-71-261641.html",
+                "price": "R$ 39,90",
+                "oldPrice": "R$ 79,00",
+                "productInfo": {
+                    "paymentConditions": "ou <strong>3X</strong> de <strong> 13.30</strong>"
+                }
+            }
+        ],
+        "item": {
+            "apiKey": "extra",
+            "businessId": "1685742",
+            "name": "TV 32” LED LG 32LS3400 com Conversor Digital e Entradas HDMI e USB",
+            "status": "AVAILABLE",
+            "imageName": "6256510",
+            "detailUrl": "http://www.extra.com.br/Eletronicos/tvs/TVLED/TV-32”-LED-LG-32LS3400-com-Conversor-Digital-e-Entradas-HDMI-e-USB-1685742.html",
+            "price": "R$ 994,90",
+            "oldPrice": "R$ 1.199,00",
+            "productInfo": {
+                "paymentConditions": "ou <strong>12X</strong> de <strong> 82.91</strong>"
+            }
+        }
+    }
+}
+
+

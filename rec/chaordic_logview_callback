@@ -1,0 +1,51 @@
+Request URL:http://extra-raas.chaordicsystems.com/raas/pages/viewRecLog/logView?callback=jQuery18206223263605497777_1363265044643&csParam=%7B%22productBusinessIds%22%3A%221653835%2C1865089%2C1706999%2C1000036157%2C1698261%22%2C%22apiKey%22%3A%22extra%22%2C%22feature%22%3A%22similaritems%22%2C%22source%22%3A%22product+details%22%2C%22pack%22%3A%22xWcE4PR67nvfA3nqjoumJhueem0vwDMq533bgPVEJaEJ6mbAzgjf6HcnHrs1jcVJtY696rWB0%2FBdDE72QrpwzmY5ITZJVExGl63H2zbvRd4GKyx8BMpBNqrc3Ftmorft%2BZaiLfEvtgys848crF6CCZzVlrQIQE2CPod69BU0XaB43oXo6dLOYCFnMfObM3btKZ3eJO49gT95PSewmyRu1fjSP1sWQX39J6tNGYZorsQ%3D%22%2C%22charset%22%3A%22UTF-8%22%7D&_=1363265046673
+Request Method:GET
+Status Code:200 OK
+Request Headersview source
+Accept:*/*
+Accept-Charset:ISO-8859-1,utf-8;q=0.7,*;q=0.3
+Accept-Encoding:gzip,deflate,sdch
+Accept-Language:en-US,en;q=0.8
+Connection:keep-alive
+Cookie:uid-saraiva=anon-e6533ed0-85bb-11e2-b1cb-bf9f9246dcfc; uid-walmart=anon-2e8ef260-881f-11e2-9b6d-cf3d884a2e1b; tg-casasbahia=T_CASASBAHIA_2013_01_09_A/vLDqcLiDeuaWA6ZsUSgsaA40DdL3j05V; uid-casasbahia=anon-ea23a7c0-85bb-11e2-9e20-6907da983453; tg-extra=T_EXTRA_2013_01_09_B/YO0JvBXJdBZ6RY1D1MvZOkLk3Ri9Yxax; uid-extra=anon-26ca4350-8bd9-11e2-93e2-adf4b3049621
+Host:extra-raas.chaordicsystems.com
+Referer:http://www.extra.com.br/Eletronicos/tvs/TVLED/TV-32%e2%80%9d-LED-LG-32LS3400-com-Conversor-Digital-e-Entradas-HDMI-e-USB-1685742.html
+User-Agent:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.172 Safari/537.22
+Query String Parametersview sourceview URL encoded
+callback:jQuery18206223263605497777_1363265044643
+csParam:{"productBusinessIds":"1653835,1865089,1706999,1000036157,1698261","apiKey":"extra","feature":"similaritems","source":"product details","pack":"xWcE4PR67nvfA3nqjoumJhueem0vwDMq533bgPVEJaEJ6mbAzgjf6HcnHrs1jcVJtY696rWB0/BdDE72QrpwzmY5ITZJVExGl63H2zbvRd4GKyx8BMpBNqrc3Ftmorft+ZaiLfEvtgys848crF6CCZzVlrQIQE2CPod69BU0XaB43oXo6dLOYCFnMfObM3btKZ3eJO49gT95PSewmyRu1fjSP1sWQX39J6tNGYZorsQ=","charset":"UTF-8"}
+_:1363265046673
+Response Headersview source
+Access-Control-Allow-Headers:Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version
+Access-Control-Allow-Methods:GET
+Access-Control-Allow-Origin:*
+Access-Control-Expose-Headers:X-Api-Version, X-Request-Id, X-Response-Time
+Connection:keep-alive
+Content-Encoding:gzip
+Content-Length:83
+Content-MD5:nm9hlsCoCtn6orMdUTYiLQ==
+Content-Type:application/javascript
+Date:Thu, 14 Mar 2013 12:40:45 GMT
+Monkey:ip-10-160-9-121:9013
+P3P:CP="NOI DSP COR NID ADMa OPTa OUR NOR"
+Server:nginx
+Set-Cookie:uid-extra=anon-26ca4350-8bd9-11e2-93e2-adf4b3049621; Max-Age=31104000; Domain=.chaordicsystems.com; Path=/
+X-Request-Id:f614914d-2101-4e1d-beb5-c7b7eac6e1a9
+X-Response-Time:5
+
+
+After loading all recommendations, sends a log request for each of
+recommendation types (frequently bought, ultimate buy, similar ite,s etc) with all products from recomendations
+This files is example of similar items logView callback.
+
+example of request parameters in url (see csParam in headers description)
+
+{
+    "productBusinessIds": "1653835,1865089,1706999,1000036157,1698261",
+    "apiKey": "extra",
+    "feature": "similaritems",
+    "source": "product details",
+    "pack": "xWcE4PR67nvfA3nqjoumJhueem0vwDMq533bgPVEJaEJ6mbAzgjf6HcnHrs1jcVJtY696rWB0/BdDE72QrpwzmY5ITZJVExGl63H2zbvRd4GKyx8BMpBNqrc3Ftmorft+ZaiLfEvtgys848crF6CCZzVlrQIQE2CPod69BU0XaB43oXo6dLOYCFnMfObM3btKZ3eJO49gT95PSewmyRu1fjSP1sWQX39J6tNGYZorsQ=",
+    "charset": "UTF-8"
+}
+

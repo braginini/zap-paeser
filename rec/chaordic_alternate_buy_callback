@@ -1,0 +1,138 @@
+Request URL:http://extra-raas.chaordicsystems.com/raas/pages/recommend/alternateBuy?callback=jQuery18208706754450686276_1363278056145&csParam=%7B%22index%22%3A0%2C%22size%22%3A4%2C%22retrieveUrlTemplates%22%3Atrue%2C%22productInfo%22%3A%22%5B%5C%22paymentConditions%5C%22%5D%22%2C%22apiKey%22%3A%22extra%22%2C%22feature%22%3A%22alternatebuy%22%2C%22source%22%3A%22product+details%22%2C%22subSubCategory%22%3A%22TV+LED%22%2C%22subCategory%22%3A%22Televisores%22%2C%22category%22%3A%22Eletr%5Cu00f4nicos%22%2C%22pack%22%3A%22xWcE4PR67nvfA3nqjoumJr2kG1UxZuG9GV1aa%2F05YT1yvE9C3zE7KahnpEN3%2BYbDOZHDnV7W2LD5wdH%2FioSjB1pEeUBkESe7xaIX9h%2FDkhT6RAVZl0WrNBxyuIIhDNjqRTigQeqDEWI7yGl8TAmZU%2BvBKQSgZK2ksPV9tWS4xGNwVpCiIFyv1f25OtWS1e44h04%2B6vy98gg3E88OThkmB5x8m8tZaTJq8tSRQqBAYHU%3D%22%2C%22charset%22%3A%22UTF-8%22%7D&_=1363278093830
+Request Method:GET
+Status Code:200 OK
+Request Headersview source
+Accept:*/*
+Accept-Charset:ISO-8859-1,utf-8;q=0.7,*;q=0.3
+Accept-Encoding:gzip,deflate,sdch
+Accept-Language:en-US,en;q=0.8
+Cache-Control:no-cache
+Connection:keep-alive
+Cookie:tg-extra=T_EXTRA_2013_01_09_B/FKkDfm4uVXfVHLsdwhvJsYcWVeKTczzh; uid-extra=anon-afc259b0-8cc2-11e2-afc1-67a438e0a155
+Host:extra-raas.chaordicsystems.com
+Pragma:no-cache
+Referer:http://www.extra.com.br/Eletronicos/tvs/TVLED/TV-32%e2%80%9d-LED-Samsung-Serie-EH5000-UN32EH5000GXZD-Full-HD-com-Conversor-Digital-e-Entradas-HDMI-e-USB-1639481.html
+User-Agent:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.172 Safari/537.22
+Query String Parametersview sourceview URL encoded
+callback:jQuery18208706754450686276_1363278056145
+csParam:{"index":0,"size":4,"retrieveUrlTemplates":true,"productInfo":"[\"paymentConditions\"]","apiKey":"extra","feature":"alternatebuy","source":"product details","subSubCategory":"TV LED","subCategory":"Televisores","category":"Eletr\u00f4nicos","pack":"xWcE4PR67nvfA3nqjoumJr2kG1UxZuG9GV1aa/05YT1yvE9C3zE7KahnpEN3+YbDOZHDnV7W2LD5wdH/ioSjB1pEeUBkESe7xaIX9h/DkhT6RAVZl0WrNBxyuIIhDNjqRTigQeqDEWI7yGl8TAmZU+vBKQSgZK2ksPV9tWS4xGNwVpCiIFyv1f25OtWS1e44h04+6vy98gg3E88OThkmB5x8m8tZaTJq8tSRQqBAYHU=","charset":"UTF-8"}
+_:1363278093830
+
+
+
+Request params
+
+{
+    "index": 0,
+    "size": 4,
+    "retrieveUrlTemplates": true,
+    "productInfo": "[\"paymentConditions\"]",
+    "apiKey": "extra",
+    "feature": "alternatebuy",
+    "source": "product details",
+    "subSubCategory": "TV LED",
+    "subCategory": "Televisores",
+    "category": "Eletrônicos",
+    "pack": "xWcE4PR67nvfA3nqjoumJr2kG1UxZuG9GV1aa/05YT1yvE9C3zE7KahnpEN3+YbDOZHDnV7W2LD5wdH/ioSjB1pEeUBkESe7xaIX9h/DkhT6RAVZl0WrNBxyuIIhDNjqRTigQeqDEWI7yGl8TAmZU+vBKQSgZK2ksPV9tWS4xGNwVpCiIFyv1f25OtWS1e44h04+6vy98gg3E88OThkmB5x8m8tZaTJq8tSRQqBAYHU=",
+    "charset": "UTF-8"
+}
+
+Response Headersview source
+Access-Control-Allow-Headers:Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version
+Access-Control-Allow-Methods:GET
+Access-Control-Allow-Origin:*
+Access-Control-Expose-Headers:X-Api-Version, X-Request-Id, X-Response-Time
+Connection:keep-alive
+Content-Encoding:gzip
+Content-Length:1004
+Content-MD5:rIOaKCaCz+sEpQpvH/h9nQ==
+Content-Type:application/javascript
+Date:Thu, 14 Mar 2013 16:18:13 GMT
+Monkey:ip-10-177-67-56:9008
+P3P:CP="NOI DSP COR NID ADMa OPTa OUR NOR"
+Server:nginx
+Set-Cookie:uid-extra=anon-afc259b0-8cc2-11e2-afc1-67a438e0a155; Max-Age=31104000; Domain=.chaordicsystems.com; Path=/
+X-Request-Id:0a838678-221f-4ac7-aa6b-6661a8162f11
+X-Response-Time:11
+
+Response
+
+{
+    "ok": true,
+    "data": {
+        "widget": {
+            "apiQuery": "alternatebuy",
+            "urlTemplates": {
+                "imageUrl": "imagens.extra.com.br/Control/ArquivoExibir.aspx?IdArquivo=%IMAGE_NAME%",
+                "httpsImageUrl": "carrinho.extra.com.br/Control/ArquivoExibir.aspx?IdArquivo=%IMAGE_NAME%",
+                "cartUrl": "carrinho.extra.com.br/Site/Carrinho.aspx?idSku=%PRODUCT_ID%",
+                "notifyUrl": null,
+                "itemUrl": "produto.extra.com.br/%PRODUCT_ID%"
+            },
+            "size": 4
+        },
+        "showInspectionData": false,
+        "generator": null,
+        "category": {
+            "name": null
+        },
+        "recommendedItems": [
+            {
+                "apiKey": "extra",
+                "businessId": "332346",
+                "name": "TV 32\" Slim LED Samsung S\u00e9rie D5000 UN32D5000 Full HD c/ Entradas HDMI e USB e Conversor Digital",
+                "status": "AVAILABLE",
+                "imageName": "3254722",
+                "detailUrl": "http://www.extra.com.br/Eletronicos/tvs/TVLED/TV-32-Slim-LED-Samsung-Serie-D5000-UN32D5000-Full-HD-c-Entradas-HDMI-e-USB-e-Conversor-Digital-332346.html",
+                "price": "R$ 1.294,90",
+                "oldPrice": "R$ 1.599,00",
+                "productInfo": {
+                    "paymentConditions": "ou <strong>12X</strong> de <strong> 107.91</strong>"
+                },
+                "percent": "38"
+            },
+            {
+                "apiKey": "extra",
+                "businessId": "1657862",
+                "name": "TV 32\u201d Philips LED 32PFL5007G/78 Full HD com Smart TV com Entradas HDMI e USB e Conversor Digital Integrado",
+                "status": "AVAILABLE",
+                "imageName": "6038992",
+                "detailUrl": "http://www.extra.com.br/Eletronicos/tvs/TVLED/TV-32\u201d-Philips-LED-32PFL5007G-78-Full-HD-com-Smart-TV-com-Entradas-HDMI-e-USB-e-Conversor-Digital-Integrado-1657862.html",
+                "price": "R$ 1.239,90",
+                "oldPrice": "R$ 1.899,00",
+                "productInfo": {
+                    "paymentConditions": "ou <strong>12X</strong> de <strong> 103.32</strong>"
+                },
+                "percent": "25"
+            },
+            {
+                "apiKey": "extra",
+                "businessId": "1639482",
+                "name": "TV 40\u201d LED Samsung S\u00e9rie EH5000 UN40EH5000GXZD Full HD com Conversor Digital e Entradas HDMI e USB",
+                "status": "AVAILABLE",
+                "imageName": "5992559",
+                "detailUrl": "http://www.extra.com.br/Eletronicos/tvs/TVLED/TV-40\u201d-LED-Samsung-Serie-EH5000-UN40EH5000GXZD-Full-HD-com-Conversor-Digital-e-Entradas-HDMI-e-USB-1639482.html",
+                "price": "R$ 1.489,90",
+                "oldPrice": "R$ 1.699,00",
+                "productInfo": {
+                    "paymentConditions": "ou <strong>12X</strong> de <strong> 124.16</strong>"
+                },
+                "percent": "13"
+            },
+            {
+                "apiKey": "extra",
+                "businessId": "1000036175",
+                "name": "TV 32\u201d Philips LED 32PFL5007G/78 Full HD com Smart TV, Conversor Digital Integrado + Suporte de Parede ELG Genius p/ TVs Plasma, LCD, LED de 15\" a 71\"",
+                "status": "AVAILABLE",
+                "imageName": "6090301",
+                "detailUrl": "http://www.extra.com.br/Eletronicos/tvs/TVLED/TV-32\u201d-Philips-LED-32PFL5007G-78-Full-HD-com-Smart-TV-Conversor-Digital-Integrado-Suporte-de-Parede-ELG-Genius-p-TVs-Plasma-LCD-LED-de-15-a-71-1000036175.html",
+                "price": "R$ 1.259,00",
+                "oldPrice": "R$ 1.999,00",
+                "productInfo": {
+                    "paymentConditions": "ou <strong>12X</strong> de <strong> 104.92</strong>"
+                },
+                "percent": "10"
+            }
+        ]
+    }
+}

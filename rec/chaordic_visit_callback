@@ -1,0 +1,40 @@
+Request URL:http://extra-raas.chaordicsystems.com/raas//pages/view/visit?callback=jQuery18209004938644357026_1363207427721&csParam=%7B%22pack%22%3A%22xWcE4PR67nvfA3nqjoumJhueem0vwDMq533bgPVEJaEJ6mbAzgjf6HcnHrs1jcVJtY696rWB0%2FBdDE72QrpwzqqTVaKYNSr4xNKGKdTDYhxcHwgdIxO98jvH24Y5Sov7BKh6nN2q%2BmONpT0r%2B8wb7kiDMYC%2F%2BsxhEEqljqAeFXw1TORfxMWNAMRT1ZxT5eSChlG6aAyUomkM3NN%2B4FQaCr%2BwRtoWbcrseJsyozCMH2I%3D%22%2C%22apiKey%22%3A%22extra%22%7D&_=1363207433051
+Request Method:GET
+Status Code:200 OK
+
+Request Headers
+Accept:*/*
+Accept-Charset:ISO-8859-1,utf-8;q=0.7,*;q=0.3
+Accept-Encoding:gzip,deflate,sdch
+Accept-Language:en-US,en;q=0.8
+Cache-Control:max-age=0
+Connection:keep-alive
+Cookie:uid-saraiva=anon-e6533ed0-85bb-11e2-b1cb-bf9f9246dcfc; uid-walmart=anon-2e8ef260-881f-11e2-9b6d-cf3d884a2e1b; tg-casasbahia=T_CASASBAHIA_2013_01_09_A/vLDqcLiDeuaWA6ZsUSgsaA40DdL3j05V; uid-casasbahia=anon-ea23a7c0-85bb-11e2-9e20-6907da983453; tg-extra=T_EXTRA_2013_01_09_B/YO0JvBXJdBZ6RY1D1MvZOkLk3Ri9Yxax; uid-extra=anon-26ca4350-8bd9-11e2-93e2-adf4b3049621
+Host:extra-raas.chaordicsystems.com
+Referer:http://www.extra.com.br/Eletronicos/tvs/TVLED/TV-32%e2%80%9d-LED-LG-32LS3400-com-Conversor-Digital-e-Entradas-HDMI-e-USB-1685742.html
+User-Agent:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.152 Safari/537.22
+Query String Parametersview sourceview URL encoded
+callback:jQuery18209004938644357026_1363207427721
+csParam:{"pack":"xWcE4PR67nvfA3nqjoumJhueem0vwDMq533bgPVEJaEJ6mbAzgjf6HcnHrs1jcVJtY696rWB0/BdDE72QrpwzqqTVaKYNSr4xNKGKdTDYhxcHwgdIxO98jvH24Y5Sov7BKh6nN2q+mONpT0r+8wb7kiDMYC/+sxhEEqljqAeFXw1TORfxMWNAMRT1ZxT5eSChlG6aAyUomkM3NN+4FQaCr+wRtoWbcrseJsyozCMH2I=","apiKey":"extra"}
+_:1363207433051
+
+Response Headers
+Access-Control-Allow-Headers:Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version
+Access-Control-Allow-Methods:GET
+Access-Control-Allow-Origin:*
+Access-Control-Expose-Headers:X-Api-Version, X-Request-Id, X-Response-Time
+Connection:keep-alive
+Content-Encoding:gzip
+Content-Length:84
+Content-MD5:bEKdAtDXyRR4gS+xQxXONw==
+Content-Type:application/javascript
+Date:Wed, 13 Mar 2013 20:40:35 GMT
+Monkey:ip-10-166-70-222:9007
+P3P:CP="NOI DSP COR NID ADMa OPTa OUR NOR"
+Server:nginx
+Set-Cookie:uid-extra=anon-26ca4350-8bd9-11e2-93e2-adf4b3049621; Max-Age=31104000; Domain=.chaordicsystems.com; Path=/
+X-Request-Id:6bc4eec2-cbff-4d37-9bdd-97f4d4f9618c
+X-Response-Time:6
+
+Body
+jQuery18209004938644357026_1363207427721({"ok":true,"data":"ok"});
