@@ -35,16 +35,16 @@ public class ArchiveOfferThread extends ParseThread {
             try {
 
                 if (this.tasks.isEmpty())
-                    Thread.sleep(5000);
+                    Thread.sleep(10000);
                 //Offer offer = this.tasks.take();
                 System.out.println("Parsed non saved offers count=" + tasks.size());
 
-                tasks.drainTo(batch, batchSize);
+                tasks.drainTo(batch);
 
                 System.out.println("Batch size=" + batch.size());
-                if (this.batch.size() >= batchSize) {
-                    flushBatch();
-                }
+
+                flushBatch();
+                Thread.sleep(10000);
             } catch (InterruptedException e) {
                 this.stopIt();
                 e.printStackTrace();
@@ -168,9 +168,9 @@ public class ArchiveOfferThread extends ParseThread {
                     else
                         stmt.setNull(19, Types.VARCHAR);
 
-                    if (offer.getImagesHashes() != null && !offer.getImagesHashes().isEmpty()){
+                    if (offer.getImagesHashes() != null && !offer.getImagesHashes().isEmpty()) {
                         StringBuilder sb = new StringBuilder();
-                        for (String hash : offer.getImagesHashes()){
+                        for (String hash : offer.getImagesHashes()) {
                             sb.append(hash);
                             sb.append(",");
                         }
@@ -179,9 +179,9 @@ public class ArchiveOfferThread extends ParseThread {
                     } else
                         stmt.setNull(20, Types.VARCHAR);
 
-                    if (offer.getContactPhones() != null && !offer.getContactPhones().isEmpty()){
+                    if (offer.getContactPhones() != null && !offer.getContactPhones().isEmpty()) {
                         StringBuilder sb = new StringBuilder();
-                        for (String phone : offer.getContactPhones()){
+                        for (String phone : offer.getContactPhones()) {
                             sb.append(phone);
                             sb.append(",");
                         }
