@@ -32,14 +32,10 @@ public class OfferParseThread extends ParseThread<Task, Offer> {
                 this.currentTask = this.tasks.take();
 
                 if (this.currentTask != null) {
-                    testUrl(this.currentTask.getUrl());   //TODO add few attempts here
+                    if (test()) return;
                     parsePage();
                 }
-            } catch (IOException e) {
-                if (!proxies.isEmpty()) {
-                    System.out.println("Bad proxy, polling another one [proxy=" + proxy + "]");
-                    this.proxy = proxies.poll();
-                }
+
             } catch (InterruptedException e) {
                 this.stopIt();
                 e.printStackTrace();
@@ -48,6 +44,30 @@ public class OfferParseThread extends ParseThread<Task, Offer> {
             }
         }
 
+    }
+
+    private boolean test() throws InterruptedException {
+        int attempt = 0;
+        boolean tested = false;
+        while (!tested) {
+            try {
+                attempt++;
+                testUrl(this.currentTask.getUrl());
+                tested = true;
+            } catch (IOException e) {
+                //TODO add few attempts here
+                if (attempt > 5) {
+                    this.tasks.put(currentTask);
+                    return true;
+                }
+                if (!proxies.isEmpty()) {
+                    System.out.println("Bad proxy, polling another one [proxy=" + proxy + "]");
+                    this.proxy = proxies.poll();
+                }
+            }
+
+        }
+        return false;
     }
 
     private void parsePage() {

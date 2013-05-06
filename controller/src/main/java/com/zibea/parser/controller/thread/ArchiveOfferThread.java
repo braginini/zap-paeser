@@ -21,8 +21,6 @@ public class ArchiveOfferThread extends ParseThread {
 
     private RealtyDao dao;
 
-    private static final int batchSize = 1;
-
     public ArchiveOfferThread(BlockingQueue<Offer> tasks, RealtyDao dao, HashSet<Long> savedOffers, Queue<Proxy> proxies) {
         super(tasks, null, proxies);
         this.dao = dao;
