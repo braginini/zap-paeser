@@ -27,7 +27,7 @@ public class DataSourceKeeper {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
-            String connectionUrl = "jdbc:sqlserver://192.168.1.105;" +
+            String connectionUrl = "jdbc:sqlserver://192.168.1.52;" +
                     "user=root;" +
                     "password=1234mudar@";
             dataSource = setupDataSource(connectionUrl);
@@ -57,7 +57,7 @@ public class DataSourceKeeper {
     public Connection getConnection() {
         try {
             Connection connection = dataSource.getConnection();
-            System.out.println("Opened connection");
+            //System.out.println("Opened connection");
             return connection;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -70,7 +70,7 @@ public class DataSourceKeeper {
         if (con != null)
             try {
                 con.close();
-                System.out.println("Connection closed");
+                //System.out.println("Connection closed");
             } catch (SQLException e) {
                 e.printStackTrace();
             }

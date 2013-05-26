@@ -19,7 +19,7 @@ public class PageSearchWorker implements Worker {
     private PageParseWorker pageParseWorker;
 
     public PageSearchWorker(PageParseWorker pageParseWorker) {
-        this.pageSearchPool = Executors.newFixedThreadPool(1, new CustomThreadFactory("page-search-worker"));
+        this.pageSearchPool = Executors.newFixedThreadPool(3, new CustomThreadFactory("page-search-worker"));
         this.pageParseWorker = pageParseWorker;
     }
 

@@ -1,5 +1,6 @@
 package com.zibea.parser.dao;
 
+import com.zibea.parser.core.exception.BatchException;
 import com.zibea.parser.model.domain.*;
 import org.apache.commons.dbcp.ConnectionFactory;
 import org.apache.commons.dbcp.DriverManagerConnectionFactory;
@@ -111,7 +112,7 @@ public class RealtyDao {
 
     public List<City> getAllCities() {
         List<City> result = new ArrayList<>();
-        Connection con =  dataSource.getConnection();
+        Connection con = dataSource.getConnection();
         try {
 
             String SQL = "SELECT * FROM realty.Cities";
@@ -138,7 +139,7 @@ public class RealtyDao {
 
     public List<City> getCityByState(State state) {
         List<City> result = new ArrayList<>();
-        Connection con =  dataSource.getConnection();
+        Connection con = dataSource.getConnection();
         try {
 
             String SQL = "SELECT * FROM realty.Cities WHERE state_id = " + state.getId();
@@ -165,7 +166,7 @@ public class RealtyDao {
 
     public List<Apartment> getAllApartments() {
         List<Apartment> result = new ArrayList<>();
-        Connection con =  dataSource.getConnection();
+        Connection con = dataSource.getConnection();
         try {
 
             String SQL = "SELECT * FROM realty.Apartments";
@@ -191,7 +192,7 @@ public class RealtyDao {
 
     public List<Transaction> getAllTransactions() {
         List<Transaction> result = new ArrayList<>();
-        Connection con =  dataSource.getConnection();
+        Connection con = dataSource.getConnection();
         try {
 
             String SQL = "SELECT * FROM realty.Transactions";
@@ -217,7 +218,7 @@ public class RealtyDao {
 
     public List<District> getDistrictsByCity(City city) {
         List<District> result = new ArrayList<>();
-        Connection con =  dataSource.getConnection();
+        Connection con = dataSource.getConnection();
         try {
 
             String SQL = "SELECT * FROM realty.Districts";
@@ -246,7 +247,7 @@ public class RealtyDao {
         System.out.println("Getting saved offers ids");
         Set<Long> result = new HashSet<>();
 
-        Connection con =  dataSource.getConnection();
+        Connection con = dataSource.getConnection();
         try {
 
             String SQL = "SELECT id FROM realty.Offers";
@@ -420,24 +421,13 @@ public class RealtyDao {
             for (Offer offer : batch)
                 savedOffers.add(offer.getId());
 
-            batch = new HashSet<>();
-            System.out.println("Flushed");
-
-        } catch (BatchUpdateException e) {
-            System.out.println(e.getMessage());
-            if (e.getMessage().contains("Violation of PRIMARY KEY constraint")) {
-                String stringId = e.getMessage().split("\\(")[1].split("\\)")[0];
-                long duplicateId = Long.parseLong(stringId);
-                batch.remove(new Offer(duplicateId));
-                dataSource.closeConnection(connection);
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace();
-            System.exit(0);
         } finally {
             if (stmt != null) {
-                stmt.close();
+                try {
+                    stmt.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
             dataSource.closeConnection(connection);
         }

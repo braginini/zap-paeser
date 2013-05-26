@@ -58,7 +58,7 @@ public abstract class ParseWorker implements Runnable {
         int returnCode = connection.getResponseCode();
         connection.disconnect();
         if (returnCode == 302) throw new PageNotFoundException("No such page");
-        if (returnCode != 200) throw new IOException("Connection error");
+        if (returnCode != 200) throw new IOException("Connection error " + returnCode + " url=" + url);
     }
 
     public abstract void processTask() throws InterruptedException;

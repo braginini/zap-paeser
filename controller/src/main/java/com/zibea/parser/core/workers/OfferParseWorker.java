@@ -20,7 +20,7 @@ public class OfferParseWorker implements Worker {
     private OfferArchiver offerArchiver;
 
     public OfferParseWorker(OfferArchiver offerArchiver) {
-        this.offerParsePool = Executors.newFixedThreadPool(1, new CustomThreadFactory("offer-parse-worker"));
+        this.offerParsePool = Executors.newFixedThreadPool(5, new CustomThreadFactory("offer-parse-worker"));
         this.offerArchiver = offerArchiver;
     }
 

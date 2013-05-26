@@ -1,5 +1,6 @@
 package com.zibea.parser.core.workers;
 
+import com.zibea.parser.core.exception.BatchException;
 import com.zibea.parser.dao.RealtyDao;
 import com.zibea.parser.model.domain.Offer;
 
@@ -36,13 +37,50 @@ public class OfferArchiver implements Runnable {
     public void run() {
         try {
             w.lock();
-            savedOffers.addAll(dao.saveBatch(batch));
-        } catch (SQLException e) {
-            e.printStackTrace();
+            flush();
         } finally {
             w.unlock();
         }
     }
+
+    private void saveOffer(Offer offer) {
+        Set<Offer> offers = new HashSet<>();
+        offers.add(offer);
+
+        try {
+            dao.saveBatch(offers);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            batch.remove(offer);
+        }
+    }
+
+    private void flush() {
+        try {
+            if (!batch.isEmpty()) {
+                System.out.println("Batch size=" + batch.size());
+                savedOffers.addAll(dao.saveBatch(batch));
+                batch.clear();
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+
+            if (e.getMessage().contains("Violation of PRIMARY KEY constraint")) {
+                String stringId = e.getMessage().split("\\(")[1].split("\\)")[0];
+                long duplicateId = Long.parseLong(stringId);
+                batch.remove(new Offer(duplicateId));
+
+                for (Offer offer : batch) {
+                    saveOffer(offer);
+                }
+
+                batch.clear();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+}
 
     public void addToBatch(Offer offer) {
         try {

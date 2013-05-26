@@ -1,10 +1,7 @@
 package com.zibea.parser.core;
 
 import com.zibea.parser.core.task.Task;
-import com.zibea.parser.core.workers.OfferArchiver;
-import com.zibea.parser.core.workers.OfferParseWorker;
-import com.zibea.parser.core.workers.PageParseWorker;
-import com.zibea.parser.core.workers.PageSearchWorker;
+import com.zibea.parser.core.workers.*;
 import com.zibea.parser.dao.RealtyDao;
 import com.zibea.parser.model.domain.*;
 
@@ -15,9 +12,7 @@ import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.util.List;
 import java.util.Queue;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 /**
  * @author: Mikhail Bragin
@@ -30,10 +25,14 @@ public class ParseServer {
 
     private PageSearchWorker searchPageWorker;
 
+    private OfferArchiver offerArchiver;
+
+    private ScheduledExecutorService archivePool = Executors.newScheduledThreadPool(1, new CustomThreadFactory("archive-pool-worker"));
+
     public ParseServer() throws Exception {
         this.dao = new RealtyDao();
 
-        OfferArchiver offerArchiver = new OfferArchiver(dao);
+        offerArchiver = new OfferArchiver(dao);
         OfferParseWorker offerParseWorker = new OfferParseWorker(offerArchiver);
         PageParseWorker pageParseWorker = new PageParseWorker(offerParseWorker);
 
@@ -41,12 +40,14 @@ public class ParseServer {
     }
 
     public void start() {
+       archivePool.scheduleAtFixedRate(offerArchiver, 0, 30, TimeUnit.SECONDS);
        prepareTasks();
     }
 
     private void prepareTasks() {
         List<State> states = dao.getAllStates();
 
+        int taskCount = 0;
         if (states != null && !states.isEmpty()) {
             for (State state : states) {
                 List<City> cities = dao.getCityByState(state);
@@ -54,8 +55,14 @@ public class ParseServer {
                     for (Apartment apartment : dao.getAllApartments()) {
                         for (Transaction transaction : dao.getAllTransactions()) {
                             for (District district : dao.getDistrictsByCity(city)) {
+                                taskCount++;
                                 searchPageWorker.addTask(new Task(state, city, apartment, transaction, district,
                                         constructPageSearchUrl(state, city, apartment, transaction)));
+                                try {
+                                    Thread.sleep(1);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
                             }
 
                         }
@@ -63,6 +70,7 @@ public class ParseServer {
                 }
             }
         }
+        System.out.println(taskCount);
     }
 
     private String constructPageSearchUrl(State state, City city, Apartment apartment, Transaction transaction) {
