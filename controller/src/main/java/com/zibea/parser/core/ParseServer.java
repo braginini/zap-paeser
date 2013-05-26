@@ -10,6 +10,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.*;
@@ -46,18 +47,24 @@ public class ParseServer {
 
     private void prepareTasks() {
         List<State> states = dao.getAllStates();
+        List<Task> tasks = new ArrayList<>();
+        List<Apartment> apartments =  dao.getAllApartments();
+        List<Transaction> transactions =  dao.getAllTransactions();
+
 
         int taskCount = 0;
         if (states != null && !states.isEmpty()) {
             for (State state : states) {
                 List<City> cities = dao.getCityByState(state);
                 for (City city : cities) {
-                    for (Apartment apartment : dao.getAllApartments()) {
-                        for (Transaction transaction : dao.getAllTransactions()) {
+                    for (Apartment apartment : apartments) {
+                        for (Transaction transaction : transactions) {
                             for (District district : dao.getDistrictsByCity(city)) {
                                 taskCount++;
-                                searchPageWorker.addTask(new Task(state, city, apartment, transaction, district,
-                                        constructPageSearchUrl(state, city, apartment, transaction)));
+                                Task task = new Task(state, city, apartment, transaction, district,
+                                        constructPageSearchUrl(state, city, apartment, transaction));
+                                /*tasks.add(task);*/
+                                searchPageWorker.addTask(task);
                                 try {
                                     Thread.sleep(1);
                                 } catch (InterruptedException e) {
