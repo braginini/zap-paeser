@@ -1,4 +1,4 @@
-package com.zibea.parser.controller.thread.task;
+package com.zibea.parser.core.task;
 
 import com.zibea.parser.model.domain.Offer;
 

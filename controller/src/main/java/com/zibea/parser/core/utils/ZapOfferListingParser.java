@@ -1,6 +1,6 @@
-package com.zibea.parser.controller.utils;
+package com.zibea.parser.core.utils;
 
-import com.zibea.parser.controller.thread.task.Task;
+import com.zibea.parser.core.task.Task;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;

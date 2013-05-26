@@ -1,4 +1,4 @@
-package com.zibea.parser.controller.utils;
+package com.zibea.parser.core.utils;
 
 import com.zibea.parser.model.domain.Offer;
 import org.jsoup.nodes.Document;

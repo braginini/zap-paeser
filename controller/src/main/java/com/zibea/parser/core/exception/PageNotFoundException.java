@@ -1,4 +1,4 @@
-package com.zibea.parser.controller.exception;
+package com.zibea.parser.core.exception;
 
 import java.io.IOException;
 

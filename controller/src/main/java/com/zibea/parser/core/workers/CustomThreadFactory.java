@@ -1,9 +1,9 @@
-package com.zibea.parser.controller.thread;
+package com.zibea.parser.core.workers;
 
 import java.util.concurrent.ThreadFactory;
 
 /**
- * @author: mbragin
+ * @author: Mikhail Bragin
  */
 public class CustomThreadFactory implements ThreadFactory {
 

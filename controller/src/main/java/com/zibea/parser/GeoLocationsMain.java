@@ -1,6 +1,6 @@
-package com.zibea.parser.controller;
+package com.zibea.parser;
 
-import com.zibea.parser.dataaccess.RealtyDao;
+import com.zibea.parser.dao.RealtyDao;
 import com.zibea.parser.model.domain.*;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
