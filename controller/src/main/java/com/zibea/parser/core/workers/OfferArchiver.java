@@ -46,7 +46,7 @@ public class OfferArchiver implements Runnable {
         }
     }
 
-    private void saveOffer(Offer offer) {
+    private boolean saveOffer(Offer offer) {
         Set<Offer> offers = new HashSet<>();
         offers.add(offer);
 
@@ -54,8 +54,10 @@ public class OfferArchiver implements Runnable {
             dao.saveBatch(offers);
         } catch (SQLException e) {
             e.printStackTrace();
-            batch.remove(offer);
+            return false;
         }
+
+        return true;
     }
 
     private void flush() {
@@ -66,19 +68,24 @@ public class OfferArchiver implements Runnable {
                 batch.clear();
             }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
 
             if (e.getMessage().contains("Violation of PRIMARY KEY constraint")) {
+                System.out.println("Constraint violation");
+
                 String stringId = e.getMessage().split("\\(")[1].split("\\)")[0];
                 long duplicateId = Long.parseLong(stringId);
                 batch.remove(new Offer(duplicateId));
 
                 for (Offer offer : batch) {
-                    saveOffer(offer);
+                    if (saveOffer(offer)) {
+                        savedOffers.add(offer.getId());
+                        offersSaved.incrementAndGet();
+                    }
                 }
 
-                offersSaved.getAndSet(offersSaved.get() + batch.size());
                 batch.clear();
+            } else {
+                e.printStackTrace();
             }
 
         } catch (Exception e) {
