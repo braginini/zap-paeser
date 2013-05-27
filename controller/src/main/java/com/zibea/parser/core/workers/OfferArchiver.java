@@ -53,7 +53,6 @@ public class OfferArchiver implements Runnable {
         try {
             dao.saveBatch(offers);
         } catch (SQLException e) {
-            e.printStackTrace();
             return false;
         }
 

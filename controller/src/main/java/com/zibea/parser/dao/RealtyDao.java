@@ -272,7 +272,7 @@ public class RealtyDao {
 
     public Set<Long> saveBatch(Set<Offer> batch) throws SQLException {
         Set<Long> savedOffers = new HashSet<>(batch.size());
-        System.out.println("Flushing batch size=" + batch);
+        System.out.println("Flushing batch size=" + batch.size());
         Connection connection = dataSource.getConnection();
         PreparedStatement stmt = null;
         try {
