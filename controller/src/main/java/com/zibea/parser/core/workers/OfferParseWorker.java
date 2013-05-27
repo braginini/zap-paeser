@@ -9,6 +9,7 @@ import org.jsoup.nodes.Document;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @author: Mikhail Bragin
@@ -19,8 +20,10 @@ public class OfferParseWorker implements Worker {
 
     private OfferArchiver offerArchiver;
 
+    private AtomicLong tasksProduced = new AtomicLong();
+
     public OfferParseWorker(OfferArchiver offerArchiver) {
-        this.offerParsePool = Executors.newFixedThreadPool(5, new CustomThreadFactory("offer-parse-worker"));
+        this.offerParsePool = Executors.newFixedThreadPool(15, new CustomThreadFactory("offer-parse-worker"));
         this.offerArchiver = offerArchiver;
     }
 
@@ -51,6 +54,7 @@ public class OfferParseWorker implements Worker {
 
                         offerArchiver.addToBatch(offer); //put task to archiving queue
                         parsed = true;
+                        tasksProduced.incrementAndGet();
                     } catch (IOException e) {
 
                         if (attempt > 5) {
@@ -65,5 +69,10 @@ public class OfferParseWorker implements Worker {
                 }
             }
         });
+    }
+
+    @Override
+    public long getTasksProduced() {
+        return tasksProduced.get();
     }
 }

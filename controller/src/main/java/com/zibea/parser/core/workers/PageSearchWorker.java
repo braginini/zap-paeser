@@ -6,6 +6,7 @@ import com.zibea.parser.core.task.Task;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @author: Mikhail Bragin
@@ -18,8 +19,10 @@ public class PageSearchWorker implements Worker {
 
     private PageParseWorker pageParseWorker;
 
+    private AtomicLong tasksProduced = new AtomicLong();
+
     public PageSearchWorker(PageParseWorker pageParseWorker) {
-        this.pageSearchPool = Executors.newFixedThreadPool(3, new CustomThreadFactory("page-search-worker"));
+        this.pageSearchPool = Executors.newFixedThreadPool(1, new CustomThreadFactory("page-search-worker"));
         this.pageParseWorker = pageParseWorker;
     }
 
@@ -50,7 +53,8 @@ public class PageSearchWorker implements Worker {
                                     task.getDistrict(),
                                     newTaskUrl));
                             pagePrepared = true;
-
+                            tasksProduced.incrementAndGet();
+                            Thread.sleep(1000);
                         } catch (PageNotFoundException e) {
                             return;  //if it was non existing page index, finish creating search page tasks
                         } catch (IOException e) {
@@ -65,5 +69,9 @@ public class PageSearchWorker implements Worker {
             }
         });
 
+    }
+
+    public long getTasksProduced() {
+        return tasksProduced.get();
     }
 }

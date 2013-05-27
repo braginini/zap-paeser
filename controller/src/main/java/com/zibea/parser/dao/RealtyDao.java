@@ -221,7 +221,7 @@ public class RealtyDao {
         Connection con = dataSource.getConnection();
         try {
 
-            String SQL = "SELECT * FROM realty.Districts";
+            String SQL = "SELECT * FROM realty.Districts WHERE city_id = " + city.getId();
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(SQL);
 
@@ -272,7 +272,7 @@ public class RealtyDao {
 
     public Set<Long> saveBatch(Set<Offer> batch) throws SQLException {
         Set<Long> savedOffers = new HashSet<>(batch.size());
-        System.out.println("Flushing...");
+        System.out.println("Flushing batch size=" + batch);
         Connection connection = dataSource.getConnection();
         PreparedStatement stmt = null;
         try {
@@ -432,6 +432,7 @@ public class RealtyDao {
             dataSource.closeConnection(connection);
         }
 
+        System.out.println("Flushed");
         return savedOffers;
     }
 }

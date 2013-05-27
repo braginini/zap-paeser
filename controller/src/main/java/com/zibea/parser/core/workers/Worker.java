@@ -8,4 +8,6 @@ import com.zibea.parser.core.task.Task;
 public interface Worker {
 
     public void addTask(Task task);
+
+    public long getTasksProduced();
 }

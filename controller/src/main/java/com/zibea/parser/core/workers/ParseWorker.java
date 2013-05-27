@@ -27,7 +27,11 @@ public abstract class ParseWorker implements Runnable {
 
                 if (task != null) {
                     attempt++;
-                    testUrl(task.getUrl());   //TODO add few attempts here
+                    String newLocation = testUrl(task.getUrl());
+                    if (newLocation != null) {
+                        testUrl(newLocation);
+                        task.setUrl(newLocation);
+                    }
                 }
             } catch (IOException e) {
                 try {
@@ -49,7 +53,7 @@ public abstract class ParseWorker implements Runnable {
         }
     }
 
-    public void testUrl(String url) throws IOException {
+    public String testUrl(String url) throws IOException {
         HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
         connection.setConnectTimeout(20 * 1000);
         connection.setReadTimeout(20 * 1000);
@@ -59,8 +63,10 @@ public abstract class ParseWorker implements Runnable {
         String location = connection.getHeaderField("Location");
         connection.disconnect();
         if (returnCode == 302) throw new PageNotFoundException("No such page");
-        if (returnCode != 200) throw new IOException("Connection error " + returnCode +
-                " location=" + location + " url=" + url);
+        if (returnCode == 301 && location != null && !location.isEmpty()) return location;
+        if (returnCode != 200) throw new IOException("Connection error url=" + url);
+
+        return null;
     }
 
     public abstract void processTask() throws InterruptedException;

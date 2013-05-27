@@ -8,6 +8,7 @@ import java.sql.*;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -19,6 +20,8 @@ public class OfferArchiver implements Runnable {
 
     private Set<Offer> batch;
     private Set<Long> savedOffers;
+
+    private AtomicLong offersSaved = new AtomicLong();
 
     private RealtyDao dao;
 
@@ -58,8 +61,8 @@ public class OfferArchiver implements Runnable {
     private void flush() {
         try {
             if (!batch.isEmpty()) {
-                System.out.println("Batch size=" + batch.size());
                 savedOffers.addAll(dao.saveBatch(batch));
+                offersSaved.getAndSet(offersSaved.get() + batch.size());
                 batch.clear();
             }
         } catch (SQLException e) {
@@ -74,13 +77,14 @@ public class OfferArchiver implements Runnable {
                     saveOffer(offer);
                 }
 
+                offersSaved.getAndSet(offersSaved.get() + batch.size());
                 batch.clear();
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-}
+    }
 
     public void addToBatch(Offer offer) {
         try {
@@ -89,5 +93,9 @@ public class OfferArchiver implements Runnable {
         } finally {
             r.unlock();
         }
+    }
+
+    public AtomicLong getOffersSaved() {
+        return offersSaved;
     }
 }

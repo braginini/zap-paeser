@@ -10,6 +10,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @author: Mikhail Bragin
@@ -21,9 +22,11 @@ public class PageParseWorker implements Worker {
     private OfferParseWorker offerParseWorker;
 
     public PageParseWorker(OfferParseWorker offerParseWorker) {
-        this.pageParsePool = Executors.newFixedThreadPool(3, new CustomThreadFactory("page-parse-worker"));
+        this.pageParsePool = Executors.newFixedThreadPool(1, new CustomThreadFactory("page-parse-worker"));
         this.offerParseWorker = offerParseWorker;
     }
+
+    private AtomicLong tasksProduced = new AtomicLong();
 
     @Override
     public void addTask(Task task) {
@@ -43,9 +46,11 @@ public class PageParseWorker implements Worker {
                         ZapOfferListingParser parser = new ZapOfferListingParser(doc, task, new HashSet<Long>()); //todo add ids
                         List<Task> preparedTasks = parser.parse();
 
-                        for (Task task : preparedTasks)
+                        for (Task task : preparedTasks) {
                             offerParseWorker.addTask(task);
-
+                            tasksProduced.incrementAndGet();
+                            Thread.sleep(1000);
+                        }
                         parsed = true;
 
                     } catch (IOException e) {
@@ -60,5 +65,9 @@ public class PageParseWorker implements Worker {
                 }
             }
         });
+    }
+
+    public long getTasksProduced() {
+        return tasksProduced.get();
     }
 }

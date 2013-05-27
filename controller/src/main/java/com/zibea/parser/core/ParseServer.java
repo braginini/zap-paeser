@@ -10,9 +10,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 import java.util.concurrent.*;
 
 /**
@@ -28,56 +26,55 @@ public class ParseServer {
 
     private OfferArchiver offerArchiver;
 
-    private ScheduledExecutorService archivePool = Executors.newScheduledThreadPool(1, new CustomThreadFactory("archive-pool-worker"));
+    private ScheduledExecutorService scheduledPool;
+
+    private MonitorThread monitor;
 
     public ParseServer() throws Exception {
         this.dao = new RealtyDao();
 
+        scheduledPool = Executors.newScheduledThreadPool(2, new CustomThreadFactory("scheduled-pool-worker"));
         offerArchiver = new OfferArchiver(dao);
         OfferParseWorker offerParseWorker = new OfferParseWorker(offerArchiver);
         PageParseWorker pageParseWorker = new PageParseWorker(offerParseWorker);
 
         this.searchPageWorker = new PageSearchWorker(pageParseWorker);
+
+        monitor = new MonitorThread(searchPageWorker, pageParseWorker, offerParseWorker, offerArchiver);
     }
 
     public void start() {
-       archivePool.scheduleAtFixedRate(offerArchiver, 0, 30, TimeUnit.SECONDS);
-       prepareTasks();
+        scheduledPool.scheduleAtFixedRate(offerArchiver, 0, 30, TimeUnit.SECONDS);
+        scheduledPool.scheduleAtFixedRate(monitor, 0, 30, TimeUnit.SECONDS);
+        prepareTasks();
     }
 
     private void prepareTasks() {
         List<State> states = dao.getAllStates();
-        List<Task> tasks = new ArrayList<>();
-        List<Apartment> apartments =  dao.getAllApartments();
-        List<Transaction> transactions =  dao.getAllTransactions();
+        List<Apartment> apartments = dao.getAllApartments();
+        List<Transaction> transactions = dao.getAllTransactions();
 
-
-        int taskCount = 0;
         if (states != null && !states.isEmpty()) {
             for (State state : states) {
                 List<City> cities = dao.getCityByState(state);
                 for (City city : cities) {
+                    //stateMap.put(state, city);
+
                     for (Apartment apartment : apartments) {
                         for (Transaction transaction : transactions) {
-                            for (District district : dao.getDistrictsByCity(city)) {
-                                taskCount++;
+                            List<District> districts = dao.getDistrictsByCity(city);
+
+                            for (District district : districts) {
+
                                 Task task = new Task(state, city, apartment, transaction, district,
                                         constructPageSearchUrl(state, city, apartment, transaction));
-                                /*tasks.add(task);*/
                                 searchPageWorker.addTask(task);
-                                try {
-                                    Thread.sleep(1);
-                                } catch (InterruptedException e) {
-                                    e.printStackTrace();
-                                }
                             }
-
                         }
                     }
                 }
             }
         }
-        System.out.println(taskCount);
     }
 
     private String constructPageSearchUrl(State state, City city, Apartment apartment, Transaction transaction) {
