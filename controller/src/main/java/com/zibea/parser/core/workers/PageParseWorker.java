@@ -22,7 +22,7 @@ public class PageParseWorker implements Worker {
     private OfferParseWorker offerParseWorker;
 
     public PageParseWorker(OfferParseWorker offerParseWorker) {
-        this.pageParsePool = Executors.newFixedThreadPool(1, new CustomThreadFactory("page-parse-worker"));
+        this.pageParsePool = Executors.newFixedThreadPool(3, new CustomThreadFactory("page-parse-worker"));
         this.offerParseWorker = offerParseWorker;
     }
 

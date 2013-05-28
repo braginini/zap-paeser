@@ -23,7 +23,7 @@ public class OfferParseWorker implements Worker {
     private AtomicLong tasksProduced = new AtomicLong();
 
     public OfferParseWorker(OfferArchiver offerArchiver) {
-        this.offerParsePool = Executors.newFixedThreadPool(15, new CustomThreadFactory("offer-parse-worker"));
+        this.offerParsePool = Executors.newFixedThreadPool(30, new CustomThreadFactory("offer-parse-worker"));
         this.offerArchiver = offerArchiver;
     }
 
