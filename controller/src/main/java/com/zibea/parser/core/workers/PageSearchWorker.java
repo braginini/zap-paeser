@@ -4,8 +4,9 @@ import com.zibea.parser.core.exception.PageNotFoundException;
 import com.zibea.parser.core.task.Task;
 
 import java.io.IOException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.Collections;
+import java.util.Queue;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
@@ -19,15 +20,18 @@ public class PageSearchWorker implements Worker {
 
     private PageParseWorker pageParseWorker;
 
+    private LinkedBlockingQueue<Task> taskQueue;
+
     private AtomicLong tasksProduced = new AtomicLong();
 
     public PageSearchWorker(PageParseWorker pageParseWorker) {
         this.pageSearchPool = Executors.newFixedThreadPool(1, new CustomThreadFactory("page-search-worker"));
         this.pageParseWorker = pageParseWorker;
+        this.taskQueue = new LinkedBlockingQueue();
+        start();
     }
 
     public void addTask(Task task) {
-
         pageSearchPool.submit(new ParseWorker(task) {
 
             @Override
@@ -68,6 +72,9 @@ public class PageSearchWorker implements Worker {
                 }
             }
         });
+    }
+
+    private void start() {
 
     }
 
