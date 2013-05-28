@@ -36,9 +36,8 @@ public class OfferParseWorker implements Worker {
             public void processTask() throws InterruptedException {
                 int attempt = 0;
 
-                boolean parsed = false;
+                while (attempt < 3) {
 
-                while (!parsed) {
                     try {
                         attempt++;
 
@@ -53,17 +52,9 @@ public class OfferParseWorker implements Worker {
                         offer.setTransaction(task.getTransaction());
 
                         offerArchiver.addToBatch(offer); //put task to archiving queue
-                        parsed = true;
                         tasksProduced.incrementAndGet();
+                        return;
                     } catch (IOException e) {
-
-                        if (attempt > 5) {
-                            //todo save to file/or db
-                            System.out.println("Giving up to get document. [url="
-                                    + task.getUrl() + "]");
-                            return;
-                        }
-
                         Thread.sleep(2000);
                     }
                 }

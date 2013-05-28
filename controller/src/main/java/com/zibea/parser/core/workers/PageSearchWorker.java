@@ -35,10 +35,9 @@ public class PageSearchWorker implements Worker {
 
                 for (int i = 1; i <= Short.MAX_VALUE; i++) {
 
-                    boolean pagePrepared = false;
                     int attempt = 0;
 
-                    while (!pagePrepared) {
+                    while (attempt < 3) {
 
                         attempt++;
                         String newTaskUrl = task.getUrl() + pageParam + i;
@@ -52,17 +51,14 @@ public class PageSearchWorker implements Worker {
                                     task.getTransaction(),
                                     task.getDistrict(),
                                     newTaskUrl));
-                            pagePrepared = true;
                             tasksProduced.incrementAndGet();
+
                             Thread.sleep(1000);
+                            break;
                         } catch (PageNotFoundException e) {
                             return;  //if it was non existing page index, finish creating search page tasks
                         } catch (IOException e) {
-                            if (attempt > 5) {
-                                e.printStackTrace();
-                                continue;
-                            }
-                            Thread.sleep(5000);
+                            Thread.sleep(2000);
                         }
                     }
                 }

@@ -36,8 +36,9 @@ public class PageParseWorker implements Worker {
             @Override
             public void processTask() throws InterruptedException {
                 int attempt = 0;
-                boolean parsed = false;
-                while (!parsed) {
+
+                while (attempt < 3) {
+
                     try {
                         attempt++;
 
@@ -50,15 +51,10 @@ public class PageParseWorker implements Worker {
                             offerParseWorker.addTask(task);
                             tasksProduced.incrementAndGet();
                         }
-                        parsed = true;
+
+                        return;
 
                     } catch (IOException e) {
-
-                        if (attempt > 5) {
-                            e.printStackTrace();
-                            return;
-                        }
-
                         Thread.sleep(1000);
                     }
                 }

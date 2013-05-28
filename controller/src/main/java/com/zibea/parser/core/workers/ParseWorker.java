@@ -23,16 +23,22 @@ public abstract class ParseWorker implements Runnable {
         int attempt = 0;
 
         while (attempt < 5) {
+
             try {
 
                 if (task != null) {
                     attempt++;
+
                     String newLocation = testUrl(task.getUrl());
                     if (newLocation != null) {
                         testUrl(newLocation);
                         task.setUrl(newLocation);
                     }
+
+                    processTask();
                 }
+
+                return;
             } catch (IOException e) {
                 try {
                     Thread.sleep(5000);
@@ -44,12 +50,6 @@ public abstract class ParseWorker implements Runnable {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
-
-        try {
-            processTask();
-        } catch (InterruptedException e) {
-            return;
         }
     }
 
