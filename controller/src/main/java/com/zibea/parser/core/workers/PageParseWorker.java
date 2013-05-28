@@ -49,7 +49,6 @@ public class PageParseWorker implements Worker {
                         for (Task task : preparedTasks) {
                             offerParseWorker.addTask(task);
                             tasksProduced.incrementAndGet();
-                            Thread.sleep(1000);
                         }
                         parsed = true;
 
