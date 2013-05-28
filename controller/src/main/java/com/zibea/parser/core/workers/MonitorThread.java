@@ -26,5 +26,8 @@ public class MonitorThread implements Runnable {
         System.out.println(pageParseWorker.getClass().getSimpleName() + " done=" + pageParseWorker.getTasksProduced());
         System.out.println(offerParseWorker.getClass().getSimpleName() + " done=" + offerParseWorker.getTasksProduced());
         System.out.println(offerArchiver.getClass().getSimpleName() + " done=" + offerArchiver.getOffersSaved());
+
+        System.out.println(searchPageWorker.getClass().getSimpleName() + " queue=" + searchPageWorker.getQueueSize());
+        System.out.println(offerParseWorker.getClass().getSimpleName() + " queue=" + offerParseWorker.getQueueSize());
     }
 }

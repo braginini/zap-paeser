@@ -9,6 +9,8 @@ import org.jsoup.nodes.Document;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
@@ -20,17 +22,27 @@ public class OfferParseWorker implements Worker {
 
     private OfferArchiver offerArchiver;
 
+    private LinkedBlockingQueue<Task> tasks;
+
     private AtomicLong tasksProduced = new AtomicLong();
 
     public OfferParseWorker(OfferArchiver offerArchiver) {
-        this.offerParsePool = Executors.newFixedThreadPool(30, new CustomThreadFactory("offer-parse-worker"));
+        this.offerParsePool = Executors.newFixedThreadPool(1, new CustomThreadFactory("offer-parse-worker"));
         this.offerArchiver = offerArchiver;
+        this.tasks = new LinkedBlockingQueue<>();
+
+        /*for (int i = 0; i < 1; i++)*/
+            start();
     }
 
     @Override
     public void addTask(Task task) {
+        this.tasks.add(task);
+    }
 
-        offerParsePool.submit(new ParseWorker(task) {
+    public void start() {
+
+        offerParsePool.submit(new NewParseWorker(tasks) {
 
             @Override
             public void processTask() throws InterruptedException {
@@ -65,5 +77,9 @@ public class OfferParseWorker implements Worker {
     @Override
     public long getTasksProduced() {
         return tasksProduced.get();
+    }
+
+    public int getQueueSize() {
+        return tasks.size();
     }
 }
