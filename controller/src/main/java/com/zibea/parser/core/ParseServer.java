@@ -54,6 +54,7 @@ public class ParseServer {
         List<Apartment> apartments = dao.getAllApartments();
         List<Transaction> transactions = dao.getAllTransactions();
 
+        int tasks = 0;
         if (states != null && !states.isEmpty()) {
             for (State state : states) {
                 List<City> cities = dao.getCityByState(state);
@@ -65,7 +66,7 @@ public class ParseServer {
                             List<District> districts = dao.getDistrictsByCity(city);
 
                             for (District district : districts) {
-
+                                tasks++;
                                 Task task = new Task(state, city, apartment, transaction, district,
                                         constructPageSearchUrl(state, city, apartment, transaction));
                                 searchPageWorker.addTask(task);

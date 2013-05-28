@@ -28,9 +28,17 @@ public abstract class NewParseWorker implements Runnable {
 
         blinker = this;
 
-        nextTask : while (blinker != null) {
+        nextTask:
+        while (blinker != null) {
 
-            this.task = tasks.poll();
+
+            try {
+                this.task = tasks.take();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                stopIt();
+                return;
+            }
 
             int attempt = 0;
 

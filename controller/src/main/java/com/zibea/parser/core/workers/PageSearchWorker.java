@@ -41,7 +41,7 @@ public class PageSearchWorker implements Worker {
             @Override
             public void processTask() throws InterruptedException {
 
-                for (int i = 1; i <= Short.MAX_VALUE; i++) {
+               for (int i = 1; i <= Short.MAX_VALUE; i++) {
 
                     int attempt = 0;
 
