@@ -51,11 +51,19 @@ public class OfferArchiver implements Runnable {
             }
 
             @Override
-            public void saveOneByOne() throws SQLException {
+            public void saveOneByOne() {
 
                 for (Offer offer : batch) {
-                    dao.saveOffer(offer);
-                    offersSaved.incrementAndGet();
+
+                    try {
+
+                        dao.saveOffer(offer);
+                        offersSaved.incrementAndGet();
+
+                    } catch (SQLException e) {
+                        support.checkException(e);
+                        continue;
+                    }
                 }
             }
 

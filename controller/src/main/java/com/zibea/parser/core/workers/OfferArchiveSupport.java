@@ -35,14 +35,8 @@ public class OfferArchiveSupport {
 
             checkException(e);
 
-            try {
-                //todo fix here
-                action.saveOneByOne();
-                action.clearBatch();
-
-            } catch (SQLException e1) {
-                checkException(e1);
-            }
+            action.saveOneByOne();
+            action.clearBatch();
 
         } finally {
             w.unlock();
@@ -50,7 +44,7 @@ public class OfferArchiveSupport {
 
     }
 
-    private void checkException(SQLException e) {
+    public void checkException(SQLException e) {
         if (!isIdConstraintViolation(e.getMessage())) {
             e.printStackTrace();
             System.exit(1);
@@ -65,7 +59,7 @@ public class OfferArchiveSupport {
 
         void flush() throws SQLException;
 
-        void saveOneByOne() throws SQLException;
+        void saveOneByOne();
 
         void clearBatch();
     }
