@@ -6,11 +6,8 @@
 
     <groupId>realty_parser</groupId>
     <artifactId>realty_parser</artifactId>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>controller</module>
-    </modules>
 
     <properties>
         <project.source.version>1.7</project.source.version>
