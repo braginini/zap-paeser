@@ -14,7 +14,7 @@ public class OfferParseWorker extends Worker {
 
     private OfferArchiver offerArchiver;
 
-    private static final int workersAmount = 3;
+    private static final int workersAmount = 10;
 
     public OfferParseWorker(OfferArchiver offerArchiver) {
         super(workersAmount, "offer-parse-worker");
