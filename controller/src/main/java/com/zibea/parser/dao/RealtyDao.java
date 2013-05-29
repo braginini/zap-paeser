@@ -270,8 +270,44 @@ public class RealtyDao {
 
     }
 
+    public void saveOffer(Offer offer) throws SQLException {
+
+        System.out.println("Flushing offer");
+
+        if (offer == null)
+            return;
+
+        Connection connection = dataSource.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+
+            String schemaName = "realty";
+            String tableName = schemaName + ".Offers";
+            String SQL = createofferInsertSQL(tableName);
+
+            if (tableName != null) {
+
+                stmt = connection.prepareStatement(SQL);
+
+                fillStatement(offer, stmt);
+
+                boolean success = stmt.execute();
+                connection.commit();
+            }
+
+            System.out.println("Flushed offer");
+        } finally {
+            if (stmt != null)
+                stmt.close();
+            dataSource.closeConnection(connection);
+        }
+
+    }
+
     public Set<Long> saveBatch(Set<Offer> batch) throws SQLException {
         Set<Long> savedOffers = new HashSet<>(batch.size());
+
         System.out.println("Flushing batch size=" + batch.size());
         Connection connection = dataSource.getConnection();
         PreparedStatement stmt = null;
@@ -282,29 +318,7 @@ public class RealtyDao {
             String SQL = null;
             if (!batch.isEmpty()) {
                 tableName = schemaName + ".Offers";
-                SQL = "INSERT INTO " + tableName + "(" +
-                        "id, " +
-                        "state_id, " +
-                        "city_id, " +
-                        "district_id, " +
-                        "apartment_id, " +
-                        "transaction_id," +
-                        "zap_url," +
-                        "price," +
-                        "service_fee," +
-                        "room_number," +
-                        "vaga_number," +
-                        "total_area," +
-                        "year_built," +
-                        "floor_number," +
-                        "iptu_fee," +
-                        "square_meter_price," +
-                        "google_map_url," +
-                        "ts_published," +
-                        "street," +
-                        "images," +
-                        "contact_phones," +
-                        "contact_name ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                SQL = createofferInsertSQL(tableName);
             }
 
 
@@ -317,100 +331,7 @@ public class RealtyDao {
                     if (savedOffers.contains(offer.getId()))
                         continue;
 
-                    stmt.setLong(1, offer.getId());
-                    stmt.setLong(2, (offer.getState().getId()));
-                    stmt.setLong(3, (offer.getCity().getId()));
-                    stmt.setLong(4, (offer.getDistrict().getId()));
-                    stmt.setLong(5, (offer.getApartment().getId()));
-                    stmt.setLong(6, (offer.getTransaction().getId()));
-                    stmt.setString(7, offer.getUrl());
-
-                    if (offer.getPrice() != null)
-                        stmt.setDouble(8, offer.getPrice());
-                    else
-                        stmt.setNull(8, Types.DOUBLE);
-
-                    if (offer.getServiceFee() != null)
-                        stmt.setDouble(9, offer.getServiceFee());
-                    else
-                        stmt.setNull(9, Types.DOUBLE);
-
-                    if (offer.getRoomNumber() != null)
-                        stmt.setInt(10, offer.getRoomNumber());
-                    else
-                        stmt.setNull(10, Types.INTEGER);
-
-                    if (offer.getVagaNumber() != null)
-                        stmt.setInt(11, offer.getVagaNumber());
-                    else
-                        stmt.setNull(11, Types.INTEGER);
-
-                    if (offer.getTotalArea() != null)
-                        stmt.setInt(12, offer.getTotalArea());
-                    else
-                        stmt.setNull(12, Types.INTEGER);
-
-                    if (offer.getYearBuilt() != null)
-                        stmt.setInt(13, offer.getYearBuilt());
-                    else
-                        stmt.setNull(13, Types.INTEGER);
-
-                    if (offer.getFloorNumber() != null)
-                        stmt.setInt(14, offer.getFloorNumber());
-                    else
-                        stmt.setNull(14, Types.INTEGER);
-
-                    if (offer.getIptuFee() != null)
-                        stmt.setInt(15, offer.getIptuFee());
-                    else
-                        stmt.setNull(15, Types.INTEGER);
-
-                    if (offer.getPricePerSquareMeter() != null)
-                        stmt.setDouble(16, offer.getPricePerSquareMeter());
-                    else
-                        stmt.setNull(16, Types.DOUBLE);
-
-                    if (offer.getGoogleMapUrl() != null)
-                        stmt.setString(17, offer.getGoogleMapUrl());
-                    else
-                        stmt.setNull(17, Types.VARCHAR);
-
-                    if (offer.getTsPublished() != null)
-                        stmt.setLong(18, offer.getTsPublished());
-                    else
-                        stmt.setLong(18, System.currentTimeMillis());
-
-                    if (offer.getStreetAddress() != null)
-                        stmt.setString(19, offer.getStreetAddress());
-                    else
-                        stmt.setNull(19, Types.VARCHAR);
-
-                    if (offer.getImagesHashes() != null && !offer.getImagesHashes().isEmpty()) {
-                        StringBuilder sb = new StringBuilder();
-                        for (String hash : offer.getImagesHashes()) {
-                            sb.append(hash);
-                            sb.append(",");
-                        }
-                        sb.deleteCharAt(sb.length() - 1); //remove last index
-                        stmt.setString(20, sb.toString());
-                    } else
-                        stmt.setNull(20, Types.VARCHAR);
-
-                    if (offer.getContactPhones() != null && !offer.getContactPhones().isEmpty()) {
-                        StringBuilder sb = new StringBuilder();
-                        for (String phone : offer.getContactPhones()) {
-                            sb.append(phone);
-                            sb.append(",");
-                        }
-                        sb.deleteCharAt(sb.length() - 1); //remove last index
-                        stmt.setString(21, sb.toString());
-                    } else
-                        stmt.setNull(21, Types.VARCHAR);
-
-                    if (offer.getContactName() != null)
-                        stmt.setString(22, offer.getContactName());
-                    else
-                        stmt.setNull(22, Types.VARCHAR);
+                    fillStatement(offer, stmt);
 
                     stmt.addBatch();
                 }
@@ -422,17 +343,139 @@ public class RealtyDao {
                 savedOffers.add(offer.getId());
 
         } finally {
-            if (stmt != null) {
-                try {
-                    stmt.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
+
+            if (stmt != null)
+                stmt.close();
+
             dataSource.closeConnection(connection);
         }
 
-        System.out.println("Flushed");
+        System.out.println("Flushed batch");
         return savedOffers;
+    }
+
+    private String createofferInsertSQL(String tableName) {
+        String SQL;
+        SQL = "INSERT INTO " + tableName + "(" +
+                "id, " +
+                "state_id, " +
+                "city_id, " +
+                "district_id, " +
+                "apartment_id, " +
+                "transaction_id," +
+                "zap_url," +
+                "price," +
+                "service_fee," +
+                "room_number," +
+                "vaga_number," +
+                "total_area," +
+                "year_built," +
+                "floor_number," +
+                "iptu_fee," +
+                "square_meter_price," +
+                "google_map_url," +
+                "ts_published," +
+                "street," +
+                "images," +
+                "contact_phones," +
+                "contact_name ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        return SQL;
+    }
+
+    private void fillStatement(Offer offer, PreparedStatement stmt) throws SQLException {
+        stmt.setLong(1, offer.getId());
+        stmt.setLong(2, (offer.getState().getId()));
+        stmt.setLong(3, (offer.getCity().getId()));
+        stmt.setLong(4, (offer.getDistrict().getId()));
+        stmt.setLong(5, (offer.getApartment().getId()));
+        stmt.setLong(6, (offer.getTransaction().getId()));
+        stmt.setString(7, offer.getUrl());
+
+        if (offer.getPrice() != null)
+            stmt.setDouble(8, offer.getPrice());
+        else
+            stmt.setNull(8, Types.DOUBLE);
+
+        if (offer.getServiceFee() != null)
+            stmt.setDouble(9, offer.getServiceFee());
+        else
+            stmt.setNull(9, Types.DOUBLE);
+
+        if (offer.getRoomNumber() != null)
+            stmt.setInt(10, offer.getRoomNumber());
+        else
+            stmt.setNull(10, Types.INTEGER);
+
+        if (offer.getVagaNumber() != null)
+            stmt.setInt(11, offer.getVagaNumber());
+        else
+            stmt.setNull(11, Types.INTEGER);
+
+        if (offer.getTotalArea() != null)
+            stmt.setInt(12, offer.getTotalArea());
+        else
+            stmt.setNull(12, Types.INTEGER);
+
+        if (offer.getYearBuilt() != null)
+            stmt.setInt(13, offer.getYearBuilt());
+        else
+            stmt.setNull(13, Types.INTEGER);
+
+        if (offer.getFloorNumber() != null)
+            stmt.setInt(14, offer.getFloorNumber());
+        else
+            stmt.setNull(14, Types.INTEGER);
+
+        if (offer.getIptuFee() != null)
+            stmt.setInt(15, offer.getIptuFee());
+        else
+            stmt.setNull(15, Types.INTEGER);
+
+        if (offer.getPricePerSquareMeter() != null)
+            stmt.setDouble(16, offer.getPricePerSquareMeter());
+        else
+            stmt.setNull(16, Types.DOUBLE);
+
+        if (offer.getGoogleMapUrl() != null)
+            stmt.setString(17, offer.getGoogleMapUrl());
+        else
+            stmt.setNull(17, Types.VARCHAR);
+
+        if (offer.getTsPublished() != null)
+            stmt.setLong(18, offer.getTsPublished());
+        else
+            stmt.setLong(18, System.currentTimeMillis());
+
+        if (offer.getStreetAddress() != null)
+            stmt.setString(19, offer.getStreetAddress());
+        else
+            stmt.setNull(19, Types.VARCHAR);
+
+        if (offer.getImagesHashes() != null && !offer.getImagesHashes().isEmpty()) {
+            StringBuilder sb = new StringBuilder();
+            for (String hash : offer.getImagesHashes()) {
+                sb.append(hash);
+                sb.append(",");
+            }
+            sb.deleteCharAt(sb.length() - 1); //remove last index
+            stmt.setString(20, sb.toString());
+        } else
+            stmt.setNull(20, Types.VARCHAR);
+
+        if (offer.getContactPhones() != null && !offer.getContactPhones().isEmpty()) {
+            StringBuilder sb = new StringBuilder();
+            for (String phone : offer.getContactPhones()) {
+                sb.append(phone);
+                sb.append(",");
+            }
+            sb.deleteCharAt(sb.length() - 1); //remove last index
+            stmt.setString(21, sb.toString());
+        } else
+            stmt.setNull(21, Types.VARCHAR);
+
+        if (offer.getContactName() != null)
+            stmt.setString(22, offer.getContactName());
+        else
+            stmt.setNull(22, Types.VARCHAR);
     }
 }

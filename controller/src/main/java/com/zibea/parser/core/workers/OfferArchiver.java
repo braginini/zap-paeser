@@ -1,12 +1,12 @@
 package com.zibea.parser.core.workers;
 
-import com.zibea.parser.core.exception.BatchException;
 import com.zibea.parser.dao.RealtyDao;
 import com.zibea.parser.model.domain.Offer;
 
 import java.sql.*;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.locks.Lock;
@@ -25,79 +25,65 @@ public class OfferArchiver implements Runnable {
 
     private RealtyDao dao;
 
-    ReadWriteLock readWriteLock = new ReentrantReadWriteLock(true);
-    Lock r = readWriteLock.readLock();
-    Lock w = readWriteLock.writeLock();
-
+    private OfferArchiveSupport support;
 
     public OfferArchiver(RealtyDao dao) {
         this.dao = dao;
+        this.support = new OfferArchiveSupport();
         batch = Collections.synchronizedSet(new HashSet<Offer>());
         savedOffers = Collections.synchronizedSet(new HashSet<Long>());
     }
 
     @Override
     public void run() {
-        try {
-            w.lock();
-            flush();
-        } finally {
-            w.unlock();
-        }
-    }
+        support.doFlush(new OfferArchiveSupport.InsertAction() {
 
-    private boolean saveOffer(Offer offer) {
-        Set<Offer> offers = new HashSet<>();
-        offers.add(offer);
+            @Override
+            public void flush() throws SQLException {
 
-        try {
-            dao.saveBatch(offers);
-        } catch (SQLException e) {
-            return false;
-        }
+                if (!batch.isEmpty()) {
 
-        return true;
-    }
+                    checkDuplicates();
 
-    private void flush() {
-        try {
-            if (!batch.isEmpty()) {
-                savedOffers.addAll(dao.saveBatch(batch));
-                offersSaved.getAndSet(offersSaved.get() + batch.size());
-                batch.clear();
+                    savedOffers.addAll(dao.saveBatch(batch));
+                    offersSaved.getAndSet(offersSaved.get() + batch.size());
+                }
             }
-        } catch (SQLException e) {
 
-            if (e.getMessage().contains("Violation of PRIMARY KEY constraint")) {
-                System.out.println("Constraint violation");
-
-                String stringId = e.getMessage().split("\\(")[1].split("\\)")[0];
-                long duplicateId = Long.parseLong(stringId);
-                batch.remove(new Offer(duplicateId));
+            @Override
+            public void saveOneByOne() throws SQLException {
 
                 for (Offer offer : batch) {
-                    if (saveOffer(offer)) {
-                        savedOffers.add(offer.getId());
-                        offersSaved.incrementAndGet();
-                    }
+                    dao.saveOffer(offer);
+                    offersSaved.incrementAndGet();
                 }
-
-                batch.clear();
-            } else {
-                e.printStackTrace();
             }
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+            @Override
+            public void clearBatch() {
+                batch.clear();
+            }
+
+        });
     }
 
-    public void addToBatch(Offer offer) {
-        try {
-            r.lock();
-            batch.add(offer);
-        } finally {
-            r.unlock();
+    public void addToBatch(final Offer offer) {
+
+        support.doAdd(new OfferArchiveSupport.AddAction() {
+            @Override
+            public void add() {
+                batch.add(offer);
+            }
+        });
+    }
+
+    private void checkDuplicates() {
+        Iterator<Offer> it = batch.iterator();
+
+        while (it.hasNext()) {
+            Offer offer = it.next();
+            if (savedOffers.contains(offer.getId()))
+                it.remove();
         }
     }
 

@@ -5,7 +5,9 @@ import com.zibea.parser.core.task.Task;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.net.SocketTimeoutException;
 import java.net.URL;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * @author: Mikhail Bragin
@@ -14,41 +16,73 @@ public abstract class ParseWorker implements Runnable {
 
     protected Task task;
 
-    protected ParseWorker(Task task) {
-        this.task = task;
+    protected LinkedBlockingQueue<Task> tasks;
+
+    protected Object blinker;
+
+    private static final int attemptNumber = 3;
+
+    protected ParseWorker(LinkedBlockingQueue<Task> tasks) {
+        this.tasks = tasks;
     }
 
     @Override
     public void run() {
-        int attempt = 0;
 
-        while (attempt < 5) {
+        blinker = this;
+
+        nextTask:
+        while (blinker != null) {
 
             try {
+                this.task = tasks.take();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                stopIt();
+                return;
+            }
 
-                if (task != null) {
-                    attempt++;
+            int attempt = 1;
 
-                    String newLocation = testUrl(task.getUrl());
-                    if (newLocation != null) {
-                        testUrl(newLocation);
-                        task.setUrl(newLocation);
+            while (attempt <= attemptNumber) {
+
+                try {
+
+                    if (task != null) {
+                        attempt++;
+
+                        String newLocation = testUrl(task.getUrl());
+
+                        while (newLocation != null) {
+                            task.setUrl(newLocation);
+                            newLocation = testUrl(newLocation);
+                        }
+
+                        processTask();
                     }
 
-                    processTask();
-                }
+                    continue nextTask;
 
-                return;
-            } catch (IOException e) {
-                try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException e1) {
+                } catch (PageNotFoundException e) {
+                    continue nextTask;
+                } catch (SocketTimeoutException e) {
+
+                    try {
+
+                        if (attempt == attemptNumber) {
+                            tasks.add(task); //giving up the task and adding back to queue to process later
+                            continue nextTask;
+                        }
+
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e1) {
+                        e.printStackTrace();
+                        stopIt();
+                    }
                     e.printStackTrace();
-                    return;
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                e.printStackTrace();
-            } catch (Exception e) {
-                e.printStackTrace();
             }
         }
     }
@@ -67,6 +101,10 @@ public abstract class ParseWorker implements Runnable {
         if (returnCode != 200) throw new IOException("Connection error url=" + url);
 
         return null;
+    }
+
+    public void stopIt() {
+        this.blinker = null;
     }
 
     public abstract void processTask() throws InterruptedException;

@@ -22,12 +22,19 @@ public class MonitorThread implements Runnable {
 
     @Override
     public void run() {
+        System.out.println("===================");
+
         System.out.println(searchPageWorker.getClass().getSimpleName() + " done=" + searchPageWorker.getTasksProduced());
         System.out.println(pageParseWorker.getClass().getSimpleName() + " done=" + pageParseWorker.getTasksProduced());
         System.out.println(offerParseWorker.getClass().getSimpleName() + " done=" + offerParseWorker.getTasksProduced());
         System.out.println(offerArchiver.getClass().getSimpleName() + " done=" + offerArchiver.getOffersSaved());
 
+        System.out.println();
+
         System.out.println(searchPageWorker.getClass().getSimpleName() + " queue=" + searchPageWorker.getQueueSize());
+        System.out.println(pageParseWorker.getClass().getSimpleName() + " queue=" + pageParseWorker.getQueueSize());
         System.out.println(offerParseWorker.getClass().getSimpleName() + " queue=" + offerParseWorker.getQueueSize());
+
+        System.out.println("===================");
     }
 }

@@ -8,61 +8,54 @@ import org.jsoup.nodes.Document;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * @author: Mikhail Bragin
  */
-public class PageParseWorker implements Worker {
-
-    private ExecutorService pageParsePool;
+public class PageParseWorker extends Worker {
 
     private OfferParseWorker offerParseWorker;
 
+    private static final int workersAmount = 3;
+
     public PageParseWorker(OfferParseWorker offerParseWorker) {
-        this.pageParsePool = Executors.newFixedThreadPool(3, new CustomThreadFactory("page-parse-worker"));
+        super(workersAmount, "page-parse-worker");
         this.offerParseWorker = offerParseWorker;
     }
 
-    private AtomicLong tasksProduced = new AtomicLong();
-
     @Override
-    public void addTask(Task task) {
+    public void start() {
+        for (int i = 0; i < workersAmount; i++) {
 
-        pageParsePool.submit(new ParseWorker(task) {
+            pool.submit(new ParseWorker(tasks) {
 
-            @Override
-            public void processTask() throws InterruptedException {
-                int attempt = 0;
+                @Override
+                public void processTask() throws InterruptedException {
+                    int attempt = 0;
 
-                while (attempt < 3) {
+                    while (attempt < 3) {
 
-                    try {
-                        attempt++;
+                        try {
+                            attempt++;
 
-                        //testUrl(this.currentTask.getUrl()); //already tested before in another thread
-                        Document doc = Jsoup.connect(task.getUrl()).get(); //parseWithProxy();//
-                        ZapOfferListingParser parser = new ZapOfferListingParser(doc, task, new HashSet<Long>()); //todo add ids
-                        List<Task> preparedTasks = parser.parse();
+                            //testUrl(this.currentTask.getUrl()); //already tested before in another thread
+                            Document doc = Jsoup.connect(task.getUrl()).get(); //parseWithProxy();//
+                            ZapOfferListingParser parser = new ZapOfferListingParser(doc, task, new HashSet<Long>()); //todo add ids
+                            List<Task> preparedTasks = parser.parse();
 
-                        for (Task task : preparedTasks) {
-                            offerParseWorker.addTask(task);
-                            tasksProduced.incrementAndGet();
+                            for (Task task : preparedTasks) {
+                                offerParseWorker.addTask(task);
+                                tasksProduced.incrementAndGet();
+                            }
+
+                            return;
+
+                        } catch (IOException e) {
+                            Thread.sleep(1000);
                         }
-
-                        return;
-
-                    } catch (IOException e) {
-                        Thread.sleep(1000);
                     }
                 }
-            }
-        });
-    }
-
-    public long getTasksProduced() {
-        return tasksProduced.get();
+            });
+        }
     }
 }
