@@ -6,8 +6,11 @@
 
     <groupId>realty_parser</groupId>
     <artifactId>realty_parser</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>controller</module>
+    </modules>
 
     <properties>
         <project.source.version>1.7</project.source.version>
@@ -39,13 +42,6 @@
             <artifactId>sqljdbc4</artifactId>
             <version>3.0</version>
         </dependency>
-
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>r09</version>
-        </dependency>
-
 
     </dependencies>
 
